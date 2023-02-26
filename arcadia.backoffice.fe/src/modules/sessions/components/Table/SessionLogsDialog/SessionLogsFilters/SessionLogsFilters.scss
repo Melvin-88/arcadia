@@ -1,0 +1,25 @@
+.session-logs-filters {
+  @include smooth-resize-padding(10, 10, 10, 50);
+  @include smooth-resize(10, grid-column-gap);
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.session-logs-filters__form {
+  @include smooth-resize(10, grid-column-gap);
+  display: grid;
+}
+
+.session-logs-filters__fields {
+  @include smooth-resize(10, grid-column-gap);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.session-logs-filters__controls {
+  @include smooth-resize(180, min-width);
+  @include smooth-resize(10, grid-column-gap);
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: flex-end;
+}

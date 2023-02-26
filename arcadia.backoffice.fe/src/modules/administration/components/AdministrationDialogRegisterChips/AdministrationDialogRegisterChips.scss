@@ -1,0 +1,46 @@
+.administration-register-chips {
+  @include smooth-resize(850, max-width);
+  width: 100%;
+}
+
+.administration-register-chips__fields-groups {
+  @include smooth-resize(30, grid-column-gap);
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.administration-register-chips__field {
+  @include smooth-resize(250, width);
+}
+
+.administration-register-chips__fields-container {
+  @include smooth-resize(25, margin-top);
+  @include smooth-resize(10, grid-column-gap);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(auto, 1fr));
+  align-items: flex-start;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.administration-register-chips__field-label {
+  @include smooth-resize(7px, margin-top);
+}
+
+.administration-register-chips__password-field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.administration-register-chips__password-field-label {
+  @include smooth-resize-margin(0, 49, 0, 0);
+  @include font-size2;
+}
+
+.administration-register-chips__password-field-container {
+  @include smooth-resize(375, max-width);
+  margin-left: auto;
+}

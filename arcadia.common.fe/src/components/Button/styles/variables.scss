@@ -1,0 +1,46 @@
+$animation-time: 0.3s !default;
+
+// Default button variables BEGIN
+$button-default-minimal-width: 165px !default;
+$button-default-border-color: transparent !default;
+$button-default-border-radius: 6px !default;
+$button-default-disabled-opacity: 0.7 !default;
+
+$button-default-hover-box-shadow: 0 10px 20px rgba($color-firm14, 0.2) !default;
+$button-default-active-box-shadow: 0 5px 10px rgba($color-firm14, 0.2) !default;
+// Default button variables END
+
+// Primary color button variables BEGIN
+$button-primary-background-color: $color-firm15 !default;
+$button-primary-border-color: $color-firm2 !default;
+$button-primary-color: $color-firm1 !default;
+// Primary color button variables END
+
+// Secondary color button variables BEGIN
+$button-secondary-background-color: $color-firm18 !default;
+$button-secondary-border-color: $color-firm18 !default;
+$button-secondary-color: $color-firm18 !default;
+// Secondary color button variables END
+
+// Tertiary color button variables BEGIN
+$button-tertiary-background-color: $color-firm5 !default;
+$button-tertiary-border-color: $color-firm5 !default;
+$button-tertiary-color: $color-firm5 !default;
+// Tertiary color button variables END
+
+// Quaternary color button variables BEGIN
+$button-quaternary-background-color: $color-firm9 !default;
+$button-quaternary-border-color: $color-firm9 !default;
+$button-quaternary-color: $color-firm9 !default;
+// Quaternary color button variables END
+
+// Quinary color button variables BEGIN
+$button-quinary-background-color: rgba($color-firm1, 0.8) !default;
+$button-quinary-border-color: $color-firm1 !default;
+$button-quinary-color-outline: rgba($color-firm1, 0.8) !default;
+$button-quinary-color: $color-firm17 !default;
+// Quinary color button variables END
+
+// Filled button variables BEGIN
+$button-filled-color: $color-firm1 !default;
+// Filled button variables END

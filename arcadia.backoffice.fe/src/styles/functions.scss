@@ -1,0 +1,47 @@
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@mixin css-lock-by-width($min-size, $max-size, $min-width, $max-width, $property: font-size, $unit: px) {
+  $min-size: strip-unit($min-size);
+  $max-size: strip-unit($max-size);
+  $widthCoefficient: unquote('(100vw - #{$min-width}#{$unit}) / (#{$max-width} - #{$min-width})');
+  #{$property}: calc(#{$min-size + $unit} + (#{$max-size} - #{$min-size}) * (#{$widthCoefficient}));
+
+  @media (max-width: #{$min-width}#{$unit}) {
+    #{$property}: #{$min-size}#{$unit};
+  }
+
+  @media (min-width: #{$max-width}#{$unit}) {
+    #{$property}: #{$max-size}#{$unit};
+  }
+}
+
+@mixin css-lock-by-height($min-size, $max-size, $min-height, $max-height, $property: font-size, $unit: px) {
+  $min-size: strip-unit($min-size);
+  $max-size: strip-unit($max-size);
+  $heightCoefficient: unquote('(100vh - #{$min-height}#{$unit}) / (#{$max-height} - #{$min-height})');
+  #{$property}: calc(#{$min-size + $unit} + (#{$max-size} - #{$min-size}) * (#{$heightCoefficient}));
+
+  @media (max-height: #{$min-height}#{$unit}) {
+    #{$property}: #{$min-size}#{$unit};
+  }
+
+  @media (min-height: #{$max-height}#{$unit}) {
+    #{$property}: #{$max-size}#{$unit};
+  }
+}
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if ($index) {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}

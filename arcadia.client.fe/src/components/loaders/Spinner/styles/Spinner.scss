@@ -1,0 +1,62 @@
+@import './variables.scss';
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+@keyframes color {
+  100%,
+  0% {
+    stroke: $spinner-color3;
+  }
+
+  40% {
+    stroke: $spinner-color2;
+  }
+
+  66% {
+    stroke: $spinner-color1;
+  }
+
+  80%,
+  90% {
+    stroke: $spinner-color4;
+  }
+}
+
+.spinner {
+  width: $spinner-width;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.spinner__circle {
+  width: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+.spinner__circle-path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+  stroke-linecap: round;
+}

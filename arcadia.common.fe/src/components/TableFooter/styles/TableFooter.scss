@@ -1,0 +1,13 @@
+.table-footer {
+  @include smooth-resize-padding(15, 50, 15, 50);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table-footer__selected {
+  @include font-size3;
+  color: $color-firm1;
+  font-weight: 500;
+  margin-right: auto;
+}

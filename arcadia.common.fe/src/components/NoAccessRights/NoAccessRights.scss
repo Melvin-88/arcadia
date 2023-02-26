@@ -1,0 +1,27 @@
+.no-access-rights {
+  @include smooth-resize-padding(40, 10, 40, 10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.no-access-rights__content {
+  text-align: center;
+}
+
+.no-access-rights__icon {
+  @include smooth-resize(100, width);
+  @include smooth-resize(15, margin-bottom);
+  fill: $color-firm10;
+}
+
+.no-access-rights__title {
+  @include smooth-resize(15, margin-bottom);
+  @include smooth-resize(30);
+}
+
+.no-access-rights__description {
+  @include smooth-resize(25, margin-bottom);
+  @include font-size5;
+}

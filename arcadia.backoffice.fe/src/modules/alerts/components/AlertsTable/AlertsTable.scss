@@ -1,0 +1,7 @@
+.alerts-table__icon {
+  @include smooth-resize(16, width);
+}
+
+.alerts-table__icon--flagged path {
+  fill: $color-firm16;
+}

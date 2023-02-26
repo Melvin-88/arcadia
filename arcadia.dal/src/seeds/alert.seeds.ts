@@ -1,0 +1,26 @@
+export const alertSeeds = [
+  {
+    id: 1,
+    status: 'active',
+    type: 'information',
+    source: 'Test source',
+    severity: 'low',
+    create_date: '2020-05-12 10:43:55',
+    update_date: '2020-05-12 10:43:55',
+    description: 'Test description',
+    additional_information: '{}',
+    is_flagged: 0,
+  },
+  {
+    id: 2,
+    status: 'dismissed',
+    type: 'warning',
+    source: 'Test source 2',
+    severity: 'high',
+    create_date: '2020-05-12 10:43:55',
+    update_date: '2020-05-12 10:43:55',
+    description: 'Test description',
+    additional_information: '{}',
+    is_flagged: 1,
+  },
+];

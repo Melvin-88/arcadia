@@ -1,0 +1,24 @@
+FROM node:14.15.0-alpine3.11
+
+RUN apk update && apk add python g++ make && rm -rf /var/cache/apk/*
+
+ARG DB_HOST
+ARG DB_PORT
+ARG DB_USER
+ARG DB_PSW
+ARG DB_NAME
+
+ENV DB_CONNECTION_LIMIT = 10
+ENV DB_HOST=$DB_HOST
+ENV DB_PORT=$DB_PORT
+ENV DB_USER=$DB_USER
+ENV DB_PSW=$DB_PSW
+ENV DB_NAME=$DB_NAME
+ENV DB_MAX_QUERY_EXECUTION_TIME = 100
+ENV DB_RETRY_ATTEMPTS = 100
+
+WORKDIR /app
+COPY . .
+
+RUN npm install
+RUN npm run typeorm:cli migration:run

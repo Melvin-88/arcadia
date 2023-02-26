@@ -1,0 +1,17 @@
+@import './variables.scss';
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  @include arcadia-custom-scrollbar();
+  @include font-size2;
+  background: #474749;
+  color: #c5c5c5;
+  font-family: $ff-primary, sans-serif;
+  min-width: #{$tablet-max-width}px;
+}

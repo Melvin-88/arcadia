@@ -1,0 +1,33 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-f",
+        "arcadia.client.socketio.node/Dockerfile",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.client.socketio.node.stage:$BUILD_ID",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.client.socketio.node.stage:latest",
+        "./arcadia.client.socketio.node",
+      ]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/arcadia.client.socketio.node.stage"]
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['apply', '-f', 'arcadia.client.socketio.node/deployment/k8s/stage', '--namespace=${_ENV}']
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER_NAME}'
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: [
+      'set',
+      'image',
+      'deployment',
+      'client-socketio-node',
+      'client-socketio-node=gcr.io/$PROJECT_ID/arcadia.client.socketio.node.stage:$BUILD_ID',
+      '--namespace=${_ENV}'
+    ]
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER_NAME}'
+

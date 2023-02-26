@@ -1,0 +1,7 @@
+.groups-table__details-cell {
+  @include smooth-resize(38, padding-right);
+}
+
+.groups-table__power-line-with-diff {
+  color: $color-firm13;
+}

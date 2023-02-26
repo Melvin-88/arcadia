@@ -1,0 +1,154 @@
+@import "../../../../../node_modules/react-datepicker/dist/react-datepicker.min.css";
+@import './variables.scss';
+
+// TODO: Implement resize like everywhere
+.datepicker {
+  position: relative;
+
+  .react-datepicker__close-icon {
+    @include smooth-resize-padding(0, 5, 0, 0);
+    @include smooth-resize(34, height);
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    &:hover,
+    &:focus {
+      &:after {
+        color: $datepicker-color;
+      }
+    }
+
+    &:after {
+      @include smooth-resize(30, width);
+      @include font-size1;
+      height: 100%;
+      background: none;
+      padding: 0;
+      color: $color-firm2;
+    }
+  }
+}
+
+.datepicker__wrapper {
+  width: 100%;
+}
+
+.react-datepicker-time__caption {
+  @include font-size2;
+  color: $datepicker-color;
+}
+
+.react-datepicker__input-time-container {
+  @include smooth-resize-padding(10, 10, 10, 10);
+  margin: 0;
+  background-color: $datepicker-header-background;
+}
+
+.datepicker__label {
+  @include font-size2;
+  @include smooth-resize(5, margin-bottom);
+  display: block;
+  font-weight: 500;
+  color: $datepicker-label-color;
+}
+
+.react-datepicker-popper {
+  z-index: 3;
+
+  &[data-placement^='bottom'] {
+    .react-datepicker__triangle {
+      border-bottom-color: $datepicker-header-background;
+
+      &:before {
+        border-bottom-color: $datepicker-border-color;
+      }
+    }
+  }
+
+  &[data-placement^='top'] {
+    .react-datepicker__triangle {
+      border-top-color: $datepicker-content-background;
+
+      &:before {
+        border-top-color: $datepicker-border-color;
+      }
+    }
+  }
+}
+
+.datepicker__body {
+  border: 1px solid $datepicker-border-color;
+  background: none;
+  border-radius: 0;
+
+  .react-datepicker__header {
+    background: $datepicker-header-background;
+    border-color: $datepicker-border-color;
+  }
+
+  .react-datepicker__month-container {
+    background: $datepicker-content-background;
+  }
+
+  .react-datepicker__current-month {
+    color: $datepicker-current-month-color;
+  }
+
+  .react-datepicker__day-name,
+  .react-datepicker__day,
+  .react-datepicker__time-name {
+    color: $datepicker-color;
+  }
+
+  .react-datepicker__day--in-range,
+  .react-datepicker__day--in-selecting-range {
+    background-color: $datepicker-date-in-range-background;
+  }
+
+  .react-datepicker__day {
+    &:hover,
+    &:focus {
+      color: $datepicker-date-hover-color;
+      background: $datepicker-date-hover-background;
+    }
+
+    &:active {
+      color: $datepicker-date-hover-color;
+      background: $datepicker-date-active-background;
+    }
+  }
+
+  .react-datepicker__day--keyboard-selected {
+    background-color: $color-firm5;
+  }
+
+  .react-datepicker__day--selected {
+    background-color: $datepicker-date-active-background;
+    color: $datepicker-date-hover-color;
+  }
+
+  .react-datepicker__day--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .react-datepicker__navigation {
+    outline: none;
+    transition: border-color $animation-time;
+  }
+
+  .react-datepicker__navigation--next {
+    &:hover,
+    &:focus {
+      border-left-color: $datepicker-datepicker-navigation-color;
+    }
+  }
+
+  .react-datepicker__navigation--previous {
+    &:hover,
+    &:focus {
+      border-right-color: $datepicker-datepicker-navigation-color;
+    }
+  }
+}

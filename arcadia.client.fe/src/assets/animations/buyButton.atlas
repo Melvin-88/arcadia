@@ -1,0 +1,216 @@
+
+buyButton.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+buttonBuy0000
+  rotate: false
+  xy: 758, 602
+  size: 252, 198
+  orig: 267, 209
+  offset: 8, 4
+  index: -1
+buttonBuy0001
+  rotate: false
+  xy: 1012, 602
+  size: 252, 198
+  orig: 267, 209
+  offset: 8, 4
+  index: -1
+buttonBuy0002
+  rotate: false
+  xy: 1266, 602
+  size: 252, 198
+  orig: 267, 209
+  offset: 8, 4
+  index: -1
+buttonBuy0003
+  rotate: false
+  xy: 1520, 602
+  size: 252, 198
+  orig: 267, 209
+  offset: 8, 4
+  index: -1
+buttonBuy0004
+  rotate: false
+  xy: 1774, 602
+  size: 252, 198
+  orig: 267, 209
+  offset: 8, 4
+  index: -1
+buttonBuy0005
+  rotate: false
+  xy: 2, 403
+  size: 251, 198
+  orig: 267, 209
+  offset: 8, 4
+  index: -1
+buttonBuy0006
+  rotate: false
+  xy: 255, 403
+  size: 251, 198
+  orig: 267, 209
+  offset: 8, 4
+  index: -1
+buttonBuy0007
+  rotate: false
+  xy: 508, 402
+  size: 251, 198
+  orig: 267, 209
+  offset: 8, 4
+  index: -1
+buttonBuy0008
+  rotate: false
+  xy: 761, 402
+  size: 250, 198
+  orig: 267, 209
+  offset: 9, 4
+  index: -1
+buttonBuy0009
+  rotate: false
+  xy: 1013, 402
+  size: 250, 198
+  orig: 267, 209
+  offset: 9, 4
+  index: -1
+buttonBuy0010
+  rotate: false
+  xy: 1265, 402
+  size: 250, 198
+  orig: 267, 209
+  offset: 9, 4
+  index: -1
+buttonBuy0011
+  rotate: false
+  xy: 1517, 402
+  size: 250, 198
+  orig: 267, 209
+  offset: 9, 4
+  index: -1
+buttonBuy0012
+  rotate: false
+  xy: 1769, 402
+  size: 250, 198
+  orig: 267, 209
+  offset: 9, 4
+  index: -1
+buttonBuy0013
+  rotate: false
+  xy: 2, 603
+  size: 250, 197
+  orig: 267, 209
+  offset: 9, 5
+  index: -1
+buttonBuy0014
+  rotate: false
+  xy: 254, 603
+  size: 250, 197
+  orig: 267, 209
+  offset: 9, 5
+  index: -1
+buttonBuy0015
+  rotate: false
+  xy: 506, 603
+  size: 250, 197
+  orig: 267, 209
+  offset: 9, 5
+  index: -1
+buttonBuy0016
+  rotate: false
+  xy: 2, 203
+  size: 250, 198
+  orig: 267, 209
+  offset: 9, 4
+  index: -1
+buttonBuy0017
+  rotate: false
+  xy: 254, 203
+  size: 250, 198
+  orig: 267, 209
+  offset: 9, 4
+  index: -1
+buttonBuy0018
+  rotate: false
+  xy: 506, 202
+  size: 250, 198
+  orig: 267, 209
+  offset: 9, 4
+  index: -1
+buttonBuy0019
+  rotate: false
+  xy: 758, 202
+  size: 250, 198
+  orig: 267, 209
+  offset: 9, 4
+  index: -1
+buttonBuy0020
+  rotate: false
+  xy: 1010, 202
+  size: 250, 198
+  orig: 267, 209
+  offset: 9, 4
+  index: -1
+buttonBuy0021
+  rotate: false
+  xy: 1262, 202
+  size: 250, 198
+  orig: 267, 209
+  offset: 9, 4
+  index: -1
+buttonBuy0022
+  rotate: false
+  xy: 1514, 202
+  size: 251, 198
+  orig: 267, 209
+  offset: 8, 4
+  index: -1
+buttonBuy0023
+  rotate: false
+  xy: 1767, 202
+  size: 251, 198
+  orig: 267, 209
+  offset: 8, 4
+  index: -1
+buttonBuy0024
+  rotate: false
+  xy: 2, 3
+  size: 251, 198
+  orig: 267, 209
+  offset: 8, 4
+  index: -1
+buttonBuy0025
+  rotate: false
+  xy: 255, 2
+  size: 252, 198
+  orig: 267, 209
+  offset: 8, 4
+  index: -1
+buttonBuy0026
+  rotate: false
+  xy: 509, 2
+  size: 252, 198
+  orig: 267, 209
+  offset: 8, 4
+  index: -1
+buttonBuy0027
+  rotate: false
+  xy: 763, 2
+  size: 252, 198
+  orig: 267, 209
+  offset: 8, 4
+  index: -1
+buttonBuy0028
+  rotate: false
+  xy: 1017, 2
+  size: 252, 198
+  orig: 267, 209
+  offset: 8, 4
+  index: -1
+buttonBuy0029
+  rotate: false
+  xy: 1271, 2
+  size: 252, 198
+  orig: 267, 209
+  offset: 8, 4
+  index: -1

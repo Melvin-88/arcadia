@@ -1,0 +1,1 @@
+export const EVENT_BUS_QUEUE = 'game_server_event_bus_queue';

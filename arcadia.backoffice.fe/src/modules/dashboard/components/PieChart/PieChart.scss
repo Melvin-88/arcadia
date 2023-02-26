@@ -1,0 +1,22 @@
+.pie-chart {
+  @include smooth-resize(355, min-height);
+  display: flex;
+  flex-direction: column;
+  background: rgba($color-firm6, 0.5);
+}
+
+.pie-chart__spinner {
+  margin: auto;
+}
+
+.pie-chart__pie-chart {
+  @include smooth-resize(250, height);
+}
+
+.pie-chart__chart-title {
+  @include smooth-resize-padding(10, 10, 10, 10);
+  @include font-size2;
+  color: $color-firm1;
+  font-weight: 500;
+  background: $color-firm19;
+}

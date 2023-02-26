@@ -1,0 +1,63 @@
+.session-row-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.session-row-details__description,
+.session-row-details__controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.session-row-details__controls-row {
+  display: flex;
+}
+
+.session-row-details__description {
+  @include smooth-resize(20, margin-bottom);
+}
+
+.session-row-details__info-bar {
+  width: 15%;
+  margin-right: 5%;
+}
+
+.session-row-details__info-row {
+  @include smooth-resize(15, margin-bottom);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba($color-firm1, 0.84);
+}
+
+.session-row-details__term {
+  @include smooth-resize(20, padding-right);
+  display: table-cell;
+  vertical-align: top;
+  white-space: nowrap;
+  color: rgba($color-firm1, 0.84);
+}
+
+.session-row-details__row-value {
+  display: table-cell;
+  vertical-align: top;
+  font-weight: 600;
+}
+
+.session-row-details__configs {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.session-row-details__btn-splitter {
+  @include smooth-resize(30, margin-right);
+  border-left: 1px solid $color-firm2;
+}
+
+.session-row-details__configs-btn {
+  @include smooth-resize(30, margin-right);
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

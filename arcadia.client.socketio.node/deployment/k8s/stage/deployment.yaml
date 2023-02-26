@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-socketio-node
+  labels:
+    app: client-socketio-node
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: client-socketio-node
+  template:
+    metadata:
+      labels:
+        app: client-socketio-node
+    spec:
+      volumes:
+        - name: google-cloud-key
+          secret:
+            secretName: sm-key
+      containers:
+        - name: client-socketio-node
+          image: gcr.io/studio-staging-294712/arcadia.client.api.stage:latest
+          volumeMounts:
+            - name: google-cloud-key
+              mountPath: /var/secrets/google
+          imagePullPolicy: Always
+          env:
+            - name: USE_GCP_SM
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: USE_GCP_SM
+            - name: GCP_PROJECT
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: GCP_PROJECT
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /var/secrets/google/key.json

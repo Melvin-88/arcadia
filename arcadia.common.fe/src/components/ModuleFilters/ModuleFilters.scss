@@ -1,0 +1,28 @@
+.module-filters {
+  @include smooth-resize-padding(10, 50, 10, 50);
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.module-filters__controls {
+  @include smooth-resize(180, min-width);
+  @include smooth-resize(22, margin-top);
+  grid-area: auto / 9 / auto / 11;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.module-filters__field {
+  @include smooth-resize(165, width);
+}
+
+.module-filters__btn {
+  @include smooth-resize(130, min-width);
+}
+
+.module-filters__btn--export {
+  @include smooth-resize(42, min-width);
+}

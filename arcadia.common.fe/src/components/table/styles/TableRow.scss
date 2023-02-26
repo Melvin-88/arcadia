@@ -1,0 +1,20 @@
+@import '../../../styles/animations';
+
+.table-row--filled {
+  background: rgba($color-firm6, 0.5);
+}
+
+.table-row--expand-row {
+  display: none;
+  background-color: $color-firm17;
+  animation: fade-in $animation-time;
+}
+
+.table-row--open {
+  display: table-row;
+}
+
+.table-row__cell {
+  @include smooth-resize(20, padding-top);
+  @include smooth-resize(20, padding-bottom);
+}

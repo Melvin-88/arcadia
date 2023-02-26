@@ -1,0 +1,30 @@
+.voucher-dialog-form {
+  @include smooth-resize(650, max-width);
+  width: 100%;
+}
+
+.voucher-dialog-form__field {
+  width: 100%;
+}
+
+.voucher-dialog-form__fields-container {
+  @include smooth-resize(20, margin-top);
+  @include smooth-resize(10, grid-column-gap);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.voucher-dialog-form__fields-textarea-container {
+  @include smooth-resize(20, margin-top);
+  display: flex;
+  flex-direction: column;
+}
+
+.voucher-dialog-form__field-textarea {
+  @include smooth-resize(10, margin-top);
+}

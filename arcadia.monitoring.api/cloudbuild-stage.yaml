@@ -1,0 +1,33 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-f",
+        "arcadia.monitoring.api/Dockerfile",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.monitoring.api.stage:$BUILD_ID",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.monitoring.api.stage:latest",
+        ".",
+      ]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/arcadia.monitoring.api.stage"]
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['apply', '-f', 'arcadia.monitoring.api/deployment/k8s/stage', '--namespace=${_ENV}']
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER_NAME}'
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: [
+      'set',
+      'image',
+      'deployment',
+      'monitoring-api',
+      'monitoring-api=gcr.io/$PROJECT_ID/arcadia.monitoring.api.stage:$BUILD_ID',
+      '--namespace=${_ENV}'
+    ]
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER_NAME}'
+

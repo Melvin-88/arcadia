@@ -1,0 +1,27 @@
+@import './variables.scss';
+
+.empty-state {
+  @include smooth-resize-padding(40, 10, 40, 10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.empty-state__content {
+  text-align: center;
+}
+
+.empty-state__icon {
+  @include smooth-resize(15, margin-bottom);
+  fill: $empty-state-icon-color;
+}
+
+.empty-state__title {
+  @include smooth-resize(15, margin-bottom);
+  @include smooth-resize(30);
+}
+
+.empty-state__description {
+  @include font-size5;
+}

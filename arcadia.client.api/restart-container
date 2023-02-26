@@ -1,0 +1,10 @@
+docker stop arcadia_client_api_1
+docker stop arcadia_client_api_2
+docker rm arcadia_client_api_1
+docker rm arcadia_client_api_2
+docker-compose build client_api_1
+docker-compose build client_api_2
+docker-compose create client_api_1
+docker-compose create client_api_2
+docker-compose start client_api_1
+docker-compose start client_api_2

@@ -1,0 +1,1 @@
+sudo /usr/local/bin/certbot-auto certonly --webroot -w /usr/share/nginx/html -d dev.arcadiagaming.io -d dev-voucher.arcadiagaming.io -d dev-bo.arcadiagaming.io -d dev-bo-api.arcadiagaming.io -d dev-client-api.arcadiagaming.io -d dev-client-api.arcadiagaming.io -d dev-socketio.arcadiagaming.io -d dev-monitoring-api.arcadiagaming.io

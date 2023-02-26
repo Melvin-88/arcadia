@@ -1,0 +1,33 @@
+.auth-wrapper {
+  @include smooth-resize(20, padding);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-wrapper__left-side,
+.auth-wrapper__right-side {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-wrapper__title {
+  @include smooth-resize(30, margin-bottom);
+  @include font-size1;
+  text-align: center;
+  color: $color-firm1;
+}
+
+.auth-wrapper__content {
+  @include smooth-resize(300, width);
+}
+
+.auth-wrapper__buttons {
+  @include smooth-resize(15, margin-top);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

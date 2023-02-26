@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-api
+  labels:
+    app: client-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: client-api
+  template:
+    metadata:
+      labels:
+        app: client-api
+    spec:
+      volumes:
+        - name: google-cloud-key
+          secret:
+            secretName: sm-key
+      containers:
+        - name: client-api
+          image: gcr.io/studio-staging-294712/arcadia.client.api.stage:latest
+          volumeMounts:
+            - name: google-cloud-key
+              mountPath: /var/secrets/google
+          imagePullPolicy: Always
+          env:
+            - name: NODE_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: NODE_ENV
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: CLIENT_API_PORT
+            - name: USE_GCP_SM
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: USE_GCP_SM
+            - name: SWAGGER_ENDPOINT
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: CLIENT_API_SWAGGER_ENDPOINT
+            - name: GCP_PROJECT
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: GCP_PROJECT
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /var/secrets/google/key.json

@@ -1,0 +1,26 @@
+.vouchers-header__statistics {
+  @include smooth-resize-padding(10, 20, 10, 50);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vouchers-header__statistics-groups {
+  @include smooth-resize-padding(10, 10, 10, 50);
+  @include smooth-resize(8, margin-bottom);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  background: $color-firm6;
+}
+
+.vouchers-header__statistics-title {
+  @include smooth-resize(15, margin-right);
+  color: $color-firm1;
+}
+
+.vouchers-header__statistics-value {
+  @include smooth-resize(15, margin-left);
+  color: $color-firm1;
+}

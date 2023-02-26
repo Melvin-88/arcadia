@@ -1,0 +1,18 @@
+kubectl apply -f redis-sts.yaml
+
+kubectl apply -f redis-svc.yaml
+
+enable cluster:
+
+get pods -l app=redis-cluster -o jsonpath='{range.items[*]}{.status.podIP}:6379 ')
+
+kubectl exec -it redis-cluster-0 redis-cli --cluster create --cluster-replicas 1 $(kubectl get pods -l app=redis-cluster -o jsonpath='{range.items[*]}{.status.podIP}:6379 '| cut -d: -f1-7)
+
+kubectl exec --stdin --tty
+
+check:
+kubectl exec -it redis-cluster-0 -- redis-cli cluster info
+
+
+full check:
+for x in $(seq 0 5); do echo "redis-cluster-$x"; kubectl exec redis-cluster-$x -- redis-cli role; echo; done

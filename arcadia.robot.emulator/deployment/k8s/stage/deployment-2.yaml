@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: robot-emulator-2
+  labels:
+    app: robot-emulator-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: robot-emulator-2
+  template:
+    metadata:
+      labels:
+        app: robot-emulator-2
+    spec:
+      volumes:
+        - name: emu-storage
+          persistentVolumeClaim:
+            claimName: models-robot-emu-claim
+            readOnly: true
+      containers:
+        - name: robot-emulator-2
+          image: gcr.io/studio-staging-294712/arcadia.robot.emulator.stage:latest
+          volumeMounts:
+            - name: emu-storage
+              mountPath: /var/storage
+          imagePullPolicy: Always
+          env:
+            - name: SERIAL
+              value: "demo_serial_2"
+            - name: ROBOT_DEMO_MODE
+              value: "true"
+            - name: GAME_CORE_API_HOST
+              value: "http://game-core-api-service:3000/api/v1"
+            - name: CHIP_DISTRIBUTOR_HOST
+              value: "http://chip-distributor-service:3000"
+            - name: CHIP_STORAGE_PATH
+              value: /var/storage

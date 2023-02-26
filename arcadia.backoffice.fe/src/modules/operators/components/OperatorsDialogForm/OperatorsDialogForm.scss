@@ -1,0 +1,59 @@
+.operators-dialog-form {
+  @include smooth-resize(1300, max-width);
+  width: 100%;
+}
+
+.operators-dialog-form__fields-groups {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: repeat(2, auto);
+}
+
+.operators-dialog-form__fields-group {
+  @include smooth-resize(15, padding-right);
+
+  &:nth-child(2) {
+    padding-right: 0;
+  }
+}
+
+.operators-dialog-form__accordion-regulation {
+  @include smooth-resize(15, margin-top);
+  grid-area: 2 / 1 / 3 / 3;
+}
+
+.operators-dialog-form__accordion-configuration {
+  grid-area: 3 / 1 / 4 / 3;
+}
+
+.operators-dialog-form__field {
+  width: 100%;
+}
+
+.operators-dialog-form__fields-container {
+  @include smooth-resize(25, margin-top);
+  @include smooth-resize(10, grid-column-gap);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(auto, 1fr));
+  align-items: center;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.operators-dialog-form__password-field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.operators-dialog-form__password-field-label {
+  @include smooth-resize-margin(0, 49, 0, 0);
+  @include font-size2;
+}
+
+.operators-dialog-form__password-field-container {
+  @include smooth-resize(375, max-width);
+  margin-left: auto;
+}

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: voucher-portal
+  labels:
+    app: voucher-portal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: voucher-portal
+  template:
+    metadata:
+      labels:
+        app: voucher-portal
+    spec:
+      containers:
+        - name: voucher-portal
+          image: gcr.io/studio-staging-294712/arcadia.voucher.portal.stage:latest
+          imagePullPolicy: Always

@@ -1,0 +1,39 @@
+.hint-popup {
+  position: relative;
+}
+
+.hint-popup__body {
+  @include smooth-resize-padding(5, 10, 5, 10);
+  @include smooth-resize(8, margin-top);
+  z-index: 2;
+  background: $color-firm6;
+  border-radius: 5px;
+}
+
+.hint-popup__arrow {
+  @include smooth-resize(-10, margin-top);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 5px 5px 5px;
+  border-color: transparent transparent $color-firm6 transparent;
+}
+
+.hint-popup__icon {
+  @include smooth-resize(17, width);
+  border-radius: 50%;
+  fill: $color-firm5;
+  cursor: pointer;
+  transition: transform $animation-time, box-shadow $animation-time;
+
+  &:hover,
+  &:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba($color-firm14, 0.2);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba($color-firm14, 0.2);
+  }
+}

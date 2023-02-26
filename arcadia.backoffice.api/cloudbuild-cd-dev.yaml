@@ -1,0 +1,28 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-f",
+        "arcadia.backoffice.api/DockerfileCD",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.chip.distributor.dev:$BUILD_ID",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.chip.distributor.dev:latest",
+        ".",
+      ]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/arcadia.chip.distributor.dev"]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud compute ssh --zone "${_ZONE}" "${_INSTANCE}" --command "
+        cd /home/arcadia
+        docker stop arcadia.chip.distributor
+        docker-compose pull chip_distributor
+        docker-compose create chip_distributor
+        docker-compose start chip_distributor
+        "
+        wait

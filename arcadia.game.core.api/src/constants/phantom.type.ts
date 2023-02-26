@@ -1,0 +1,1 @@
+export const PHANTOM_CHIP_TYPE_NAME = 'phantom';

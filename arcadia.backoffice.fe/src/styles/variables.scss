@@ -1,0 +1,44 @@
+// Colors BEGIN
+$color-firm1: #ffffff;
+$color-firm2: #979797;
+$color-firm3: #737374;
+$color-firm4: #32c5ff;
+$color-firm5: #0091ff;
+$color-firm6: #1f2023;
+$color-firm7: #a4a4a5;
+$color-firm8: #6dd400;
+$color-firm9: #e02020;
+$color-firm10: #d8d8d8;
+$color-firm11: #323236;
+$color-firm12: #9f9f9f;
+$color-firm13: #f7b500;
+$color-firm14: #000000;
+$color-firm15: #727272;
+$color-firm16: #fa6400;
+$color-firm17: #474749;
+$color-firm18: #07af08;
+$color-firm19: #29292d;
+// Colors END
+
+// Fonts BEGIN
+$ff-primary: 'Roboto', sans-serif;
+$font-size1: 24px;
+$font-size2: 18px;
+$font-size3: 17px;
+$font-size4: 14px;
+$font-size5: 13px;
+// Fonts END
+
+// General BEGIN
+$animation-time: 0.3s;
+$animation-time-long: 0.5s;
+$hover-opacity: 0.7;
+$active-opacity: 0.6;
+// General END
+
+// Resize BEGIN
+$desktop-max-width: 1920;
+$tablet-max-width: 1024;
+
+$content-max-width: #{$desktop-max-width}px;
+// Resize END

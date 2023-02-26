@@ -1,0 +1,16 @@
+.json-editor {
+  display: block;
+  /* stylelint-disable */
+  width: 100% !important; // !important is needed to override inline styles assigned by default
+  /* stylelint-enable */
+  border: 1px solid rgba($color-firm10, 0.7);
+  border-radius: 4px;
+
+  &.ace-monokai {
+    background-color: $color-firm17;
+  }
+
+  .ace_scrollbar {
+    @include arcadia-custom-scrollbar();
+  }
+}

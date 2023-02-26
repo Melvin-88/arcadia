@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: monitoring-api
+  name: monitoring-api-service
+spec:
+  ports:
+    - port: 3000
+      targetPort: 3000
+  selector:
+    app: monitoring-api
+  type: NodePort

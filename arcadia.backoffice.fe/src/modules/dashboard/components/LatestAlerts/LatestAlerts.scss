@@ -1,0 +1,19 @@
+.latest-alerts {
+  @include smooth-resize(300, min-height);
+  background: rgba($color-firm6, 0.5);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.latest-alerts__spinner {
+  margin: auto;
+}
+
+.latest-alerts__title {
+  @include smooth-resize-padding(10, 10, 10, 10);
+  @include font-size2;
+  color: $color-firm1;
+  font-weight: 500;
+  background: $color-firm19;
+}

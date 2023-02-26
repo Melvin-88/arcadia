@@ -1,0 +1,8 @@
+.dialog-confirm__btn {
+  @include smooth-resize(120, min-width);
+  @include smooth-resize(45, margin-left);
+
+  &:first-child {
+    margin-left: 0;
+  }
+}

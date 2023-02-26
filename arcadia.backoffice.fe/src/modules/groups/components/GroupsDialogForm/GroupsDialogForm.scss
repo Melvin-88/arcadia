@@ -1,0 +1,59 @@
+.groups-dialog-form {
+  @include smooth-resize(880, max-width);
+  width: 100%;
+}
+
+.groups-dialog-form__fields-groups {
+  display: flex;
+}
+
+.groups-dialog-form__fields-group {
+  @include smooth-resize-margin(-12, 65, 0, 0);
+  display: inline-table;
+  flex: 1;
+
+  &:nth-child(2n) {
+    margin-right: 0;
+  }
+}
+
+.groups-dialog-form__field-container {
+  display: table-row;
+}
+
+.groups-dialog-form__field-label {
+  @include smooth-resize-padding(12, 32, 0, 0);
+  display: table-cell;
+  white-space: nowrap;
+}
+
+.groups-dialog-form__field {
+  @include smooth-resize-padding(12, 0, 0, 0);
+  display: table-cell;
+  width: 100%;
+}
+
+.groups-dialog-form__password-field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.groups-dialog-form__password-field-label {
+  @include smooth-resize-margin(0, 49, 0, 0);
+  @include font-size2;
+}
+
+.groups-dialog-form__password-field-container {
+  @include smooth-resize(375, max-width);
+  margin-left: auto;
+}
+
+.groups-dialog-form__accordions-group {
+  @include smooth-resize-padding(0, 0, 25, 0);
+}
+
+.groups-dialog-form__accordion-label {
+  display: flex;
+  align-items: center;
+}

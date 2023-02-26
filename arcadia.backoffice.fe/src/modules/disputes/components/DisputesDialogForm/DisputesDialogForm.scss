@@ -1,0 +1,28 @@
+.disputes-dialog-form {
+  @include smooth-resize(880, max-width);
+  width: 100%;
+}
+
+.disputes-dialog-form__fields-groups {
+  @include smooth-resize(30, grid-column-gap);
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: auto auto;
+}
+
+.disputes-dialog-form__field {
+  @include smooth-resize(250, width);
+}
+
+.disputes-dialog-form__fields-container {
+  @include smooth-resize(25, margin-top);
+  @include smooth-resize(10, grid-column-gap);
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+}
+
+.disputes-dialog-form__fields-container--fullsize {
+  grid-column: span 2;
+  grid-template-columns: 140px 1fr;
+}

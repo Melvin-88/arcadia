@@ -1,0 +1,25 @@
+.top-winners-and-losers {
+  @include smooth-resize(325, min-height);
+  display: flex;
+  flex-direction: column;
+  background: rgba($color-firm6, 0.5);
+}
+
+.top-winners-and-losers__chart-title {
+  @include smooth-resize-padding(10, 10, 10, 10);
+  @include font-size2;
+  color: $color-firm1;
+  font-weight: 500;
+  background: $color-firm19;
+}
+
+.top-winners-and-losers__spinner {
+  margin: auto;
+}
+
+.top-winners-and-losers__tables {
+  @include smooth-resize(5, grid-column-gap);
+  @include smooth-resize(280, height);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

@@ -1,0 +1,2 @@
+export const CANCEL_WAGER_RETRY_ATTEMPTS = 5;
+export const CANCEL_WAGER_TIMEOUT_STEP = 1000;

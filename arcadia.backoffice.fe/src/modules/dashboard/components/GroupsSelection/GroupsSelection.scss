@@ -1,0 +1,11 @@
+.groups-selection {
+  @include smooth-resize(10, padding);
+  @include smooth-resize(10, gap);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+}
+
+.groups-selection__form {
+  @include smooth-resize(230, max-width);
+}

@@ -1,0 +1,25 @@
+{
+  "name": "arcadia.client.socket",
+  "version": "0.1.0",
+  "scripts": {
+    "test": "jest",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "@google-cloud/secret-manager": "^3.2.3",
+    "amqp-connection-manager": "^3.2.2",
+    "amqplib": "^0.6.0",
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "ioredis": "^4.22.0",
+    "joi": "^17.4.0",
+    "socket.io": "2.4.1",
+    "socket.io-redis": "5.4.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "jest": "^26.6.3"
+  }
+}

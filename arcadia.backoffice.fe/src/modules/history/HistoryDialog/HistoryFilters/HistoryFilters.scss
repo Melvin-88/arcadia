@@ -1,0 +1,20 @@
+.history-filters {
+  @include smooth-resize-padding(10, 0, 10, 50);
+  display: flex;
+  justify-content: space-between;
+}
+
+.history-filters__fields {
+  @include smooth-resize(10, grid-column-gap);
+  @include smooth-resize(10, grid-row-gap);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.history-filters__controls {
+  @include smooth-resize(10, grid-column-gap);
+  @include smooth-resize(10, grid-row-gap);
+  display: grid;
+  align-items: flex-end;
+  grid-template-columns: repeat(3, auto);
+}

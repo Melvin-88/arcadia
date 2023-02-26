@@ -1,0 +1,1 @@
+export const LOBBY_DATA_POLLING_INTERVAL = 5000;

@@ -1,0 +1,23 @@
+.line-chart {
+  @include smooth-resize(270, min-height);
+  display: flex;
+  flex-direction: column;
+  background: rgba($color-firm6, 0.5);
+}
+
+.line-chart__spinner {
+  margin: auto;
+}
+
+.line-chart__chart {
+  @include smooth-resize(200, height);
+  @include smooth-resize-margin(20, 20, 10, 0);
+}
+
+.line-chart__chart-title {
+  @include smooth-resize-padding(10, 10, 10, 10);
+  @include font-size2;
+  color: $color-firm1;
+  font-weight: 500;
+  background: $color-firm19;
+}

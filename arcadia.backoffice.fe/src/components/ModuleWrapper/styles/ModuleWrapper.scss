@@ -1,0 +1,21 @@
+@import '../../../styles/animations.scss';
+
+.module-wrapper {
+  display: flex;
+  flex-grow: 1;
+  overflow: auto;
+  flex-direction: column;
+}
+
+.module-wrapper__filters {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: fade-in $animation-time-long 0.1s forwards;
+}
+
+.module-wrapper__table {
+  display: flex;
+  flex-grow: 1;
+  overflow: auto;
+}

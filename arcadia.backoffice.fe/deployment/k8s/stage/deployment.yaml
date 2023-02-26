@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backoffice-fe
+  labels:
+    app: backoffice-fe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backoffice-fe
+  template:
+    metadata:
+      labels:
+        app: backoffice-fe
+    spec:
+      containers:
+        - name: backoffice-fe
+          image: gcr.io/studio-staging-294712/arcadia.backoffice.fe.stage:latest
+          imagePullPolicy: Always

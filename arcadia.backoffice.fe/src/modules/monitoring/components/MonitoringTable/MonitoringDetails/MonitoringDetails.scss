@@ -1,0 +1,16 @@
+.monitoring-details__controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.monitoring-details__controls-container {
+  display: flex;
+}
+
+.monitoring-details__btn {
+  @include smooth-resize(30, margin-right);
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,28 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-f",
+        "arcadia.monitoring.worker/Dockerfile",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.monitoring.worker.dev:$BUILD_ID",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.monitoring.worker.dev:latest",
+        ".",
+      ]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/arcadia.monitoring.worker.dev"]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud compute ssh --zone "${_ZONE}" "${_INSTANCE}" --command "
+        cd /home/arcadia
+        docker stop arcadia_monitoring_worker
+        docker-compose pull monitoring_worker
+        docker-compose create monitoring_worker
+        docker-compose start monitoring_worker
+        "
+        wait

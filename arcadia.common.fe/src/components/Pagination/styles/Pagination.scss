@@ -1,0 +1,71 @@
+@import './variables.scss';
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.pagination__page,
+.pagination__btn-previous,
+.pagination__btn-next,
+.pagination__break {
+  @include smooth-resize(5, margin);
+  color: $pagination-page-link-color;
+  border-radius: 2px;
+  padding: 0;
+  list-style-type: none;
+  transition: background-color $animation-time, color $animation-time;
+
+  &:before,
+  &:after {
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $pagination-page-hover-background;
+    color: $pagination-page-hover-color;
+  }
+
+  &:active {
+    background-color: rgba($pagination-page-hover-background, 0.9);
+  }
+}
+
+.pagination__page-active {
+  background-color: $pagination-page-active-background;
+  color: $pagination-page-active-color;
+}
+
+.pagination__page-link,
+.pagination__btn-previous-link,
+.pagination__btn-next-link {
+  @include smooth-resize(28, min-width);
+  @include smooth-resize(28, min-height);
+  @include smooth-resize(5, padding);
+  @include font-size3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  line-height: 1;
+  cursor: pointer;
+  color: inherit;
+}
+
+.pagination__arrow {
+  display: block;
+  width: 6px;
+  stroke: currentColor;
+}
+
+.pagination__arrow--right {
+  transform: rotate(180deg);
+}
+
+.pagination--disabled {
+  pointer-events: none;
+  opacity: 0.7;
+}

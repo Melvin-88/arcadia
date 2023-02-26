@@ -1,0 +1,35 @@
+.alert-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert-details__values {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.alert-details__info-bar {
+  @include smooth-resize(120, margin-right);
+  display: table;
+}
+
+.alert-details__term {
+  @include smooth-resize(15, margin-bottom);
+  @include smooth-resize(20, padding-right);
+  display: table-cell;
+  vertical-align: top;
+  white-space: nowrap;
+  color: rgba($color-firm1, 0.84);
+}
+
+.alert-details__value {
+  display: table-cell;
+  vertical-align: top;
+  font-weight: 600;
+}
+
+.alert-details__controls {
+  display: flex;
+  justify-content: space-between;
+}

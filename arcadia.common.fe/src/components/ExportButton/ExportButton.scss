@@ -1,0 +1,8 @@
+.export-btn {
+  @include smooth-resize(42, min-width);
+}
+
+.export-btn__icon {
+  @include smooth-resize(18, width);
+  fill: $color-firm1;
+}

@@ -1,0 +1,11 @@
+.app-header {
+  @include smooth-resize-padding(10, 50, 10, 10);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.app-header__nav-bar {
+  @include smooth-resize(15, margin-right);
+}

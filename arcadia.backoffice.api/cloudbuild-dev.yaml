@@ -1,0 +1,28 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-f",
+        "arcadia.backoffice.api/Dockerfile",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.backoffice.api.dev:$BUILD_ID",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.backoffice.api.dev:latest",
+        ".",
+      ]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/arcadia.backoffice.api.dev"]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud compute ssh --zone "${_ZONE}" "${_INSTANCE}" --command "
+        cd /home/arcadia
+        docker stop arcadia_backoffice_api
+        docker-compose pull backoffice_api
+        docker-compose create backoffice_api
+        docker-compose start backoffice_api
+        "
+        wait

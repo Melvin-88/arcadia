@@ -1,0 +1,32 @@
+.administration-dialog-find-chip {
+  @include smooth-resize(1360, max-width);
+  @include smooth-resize(500, min-height);
+  width: 100%;
+}
+
+.administration-dialog-find-chip-form {
+  @include smooth-resize-padding(10, 50, 10, 50);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.administration-dialog-find-chip-form__body {
+  @include smooth-resize(150, width);
+  @include smooth-resize(15, margin-right);
+  display: flex;
+  align-items: flex-start;
+}
+
+.administration-dialog-find-chip-form__controls {
+  @include smooth-resize(180, min-width);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  align-self: flex-end;
+}
+
+.administration-dialog-find-chip-form__btn {
+  @include smooth-resize(130, min-width);
+}

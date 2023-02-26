@@ -1,0 +1,30 @@
+.stream-dialog__video-stream,
+.stream-dialog__section,
+.stream-dialog__no-stream {
+  @include smooth-resize(820, width);
+  @include smooth-resize(525, height);
+}
+
+.stream-dialog__section {
+  @include smooth-resize(10, padding-left);
+  @include smooth-resize(10, padding-right);
+  display: flex;
+}
+
+.stream-dialog__spinner {
+  margin: auto;
+}
+
+.stream-dialog__video-stream {
+  overflow: hidden;
+  border: 1px solid $color-firm12;
+}
+
+.stream-dialog__no-stream {
+  @include font-size1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-firm14;
+  color: $color-firm1;
+}

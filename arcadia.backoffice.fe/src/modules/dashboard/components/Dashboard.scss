@@ -1,0 +1,28 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  flex-grow: 1;
+}
+
+.dashboard__columns {
+  @include arcadia-custom-scrollbar();
+  @include smooth-resize-padding(0, 10, 0, 10);
+  @include smooth-resize(10, grid-column-gap);
+  display: grid;
+  grid-template-columns: 20% 35% 20% auto;
+  overflow: auto;
+}
+
+.dashboard__latest-alerts-column {
+  display: flex;
+  overflow: auto;
+}
+
+.dashboard__current-actives,
+.dashboard__active-sessions-breakdown,
+.dashboard__betting-activity,
+.dashboard__top-winners-and-losers,
+.dashboard__machine-availability {
+  @include smooth-resize(10, margin-top);
+}

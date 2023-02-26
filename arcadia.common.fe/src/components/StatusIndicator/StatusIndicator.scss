@@ -1,0 +1,35 @@
+.status-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.status-indicator__circle {
+  @include smooth-resize(9, width);
+  @include smooth-resize(9, height);
+  @include smooth-resize(10, margin-right);
+  border-radius: 50%;
+}
+
+.status-indicator__circle--blue {
+  background-color: $color-firm4;
+}
+
+.status-indicator__circle--green {
+  background-color: $color-firm8;
+}
+
+.status-indicator__circle--yellow {
+  background-color: $color-firm13;
+}
+
+.status-indicator__circle--orange {
+  background-color: $color-firm16;
+}
+
+.status-indicator__circle--grey {
+  background-color: $color-firm12;
+}
+
+.status-indicator__circle--red {
+  background-color: $color-firm9;
+}

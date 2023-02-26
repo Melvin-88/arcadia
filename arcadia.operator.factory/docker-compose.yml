@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  mysqlLocal:
+    image: mysql:5.7
+    container_name: mysqllocal
+    volumes:
+      - dbdata:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=123
+      - MYSQL_DATABASE=api
+      - MYSQL_USER=api_user
+      - MYSQL_PASSWORD=132
+    ports:
+      - "3306:3306"
+volumes:
+  dbdata:
+    driver: local

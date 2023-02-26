@@ -1,0 +1,12 @@
+.dialog-json-viewer {
+  @include smooth-resize(800, width);
+  @include smooth-resize(30, padding-bottom);
+}
+
+.dialog-json-viewer__btn {
+  @include smooth-resize(45, margin-left);
+
+  &:first-child {
+    margin-left: 0;
+  }
+}

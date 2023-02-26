@@ -1,0 +1,20 @@
+.players-per-day {
+  background: rgba($color-firm6, 0.5);
+}
+
+.players-per-day__spinner {
+  @include smooth-resize(15, padding);
+  @include smooth-resize(75, width);
+  margin: auto;
+}
+
+.players-per-day__icon {
+  @include smooth-resize(15, height);
+  transform: rotate(-90deg);
+  fill: $color-firm18;
+}
+
+.players-per-day__icon--negative {
+  fill: $color-firm9;
+  transform: rotate(90deg);
+}

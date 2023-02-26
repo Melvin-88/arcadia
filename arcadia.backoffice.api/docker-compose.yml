@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  mysqlLocal:
+    image: mysql:5.7
+    container_name: mysqllocal
+    volumes:
+      - dbdata:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=123
+      - MYSQL_DATABASE=api
+      - MYSQL_USER=api_user
+      - MYSQL_PASSWORD=132
+    ports:
+      - "3306:3306"
+
+  redis:
+    image: redis:5.0-alpine
+    container_name: arcadia_redis
+    restart: always
+    hostname: redis
+    ports:
+      - '6379:6379'
+
+  rabbitmq_1:
+    image: bitnami/rabbitmq:3.7.17
+    container_name: arcadia_rabbitmq_1
+    restart: always
+    hostname: rabbitmq-1
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    environment:
+      - RABBITMQ_NODE_NAME=rabbit@rabbitmq-1
+      - RABBITMQ_USERNAME=arcadia_admin
+      - RABBITMQ_PASSWORD=AB2WpJdqZ9RRrWH
+    volumes:
+      - rabbitmq_data:/bitnami
+
+
+volumes:
+  rabbitmq_data:
+    driver: local
+  dbdata:
+    driver: local

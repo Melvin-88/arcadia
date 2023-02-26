@@ -1,0 +1,8 @@
+.link-story__link {
+  display: inline-block;
+  margin-right: 30px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

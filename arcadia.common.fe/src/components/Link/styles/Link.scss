@@ -1,0 +1,61 @@
+@import './variables.scss';
+
+@mixin hover-focus-state {
+  color: $link-primary-hover-color;
+
+  &:after {
+    transform: scale(1);
+  }
+}
+
+.link {
+  @include font-size2;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: $link-primary-color;
+  transition: color $animation-time;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    transform: scaleX(0);
+    background-color: currentColor;
+    transition: transform $animation-time;
+  }
+
+  &:hover,
+  &:focus {
+    @include hover-focus-state;
+  }
+
+  &:active {
+    color: $link-primary-active-color;
+
+    &:after {
+      transform: scale(0.95);
+    }
+  }
+}
+
+.link--active {
+  @include hover-focus-state;
+}
+
+.link--secondary {
+  color: $link-secondary-color;
+
+  &:hover,
+  &:focus {
+    color: $link-secondary-hover-color;
+  }
+
+  &:active {
+    color: $link-secondary-active-color;
+  }
+}

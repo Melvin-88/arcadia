@@ -1,0 +1,24 @@
+@import '../../../styles/animations.scss';
+
+.table {
+  @include arcadia-custom-scrollbar();
+  position: relative;
+  height: 100%;
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.table__spinner {
+  @include smooth-resize(50, width);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.table-container {
+  width: 100%;
+  background-color: rgba($color-firm6, 0.5);
+  opacity: 0;
+  animation: fade-in $animation-time-long 0.1s forwards;
+}

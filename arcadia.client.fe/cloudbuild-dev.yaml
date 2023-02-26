@@ -1,0 +1,30 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-f",
+        "arcadia.client.fe/Dockerfile",
+        "--build-arg",
+        "API_ENDPOINT=${_API_ENDPOINT}",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.client.fe.dev:$BUILD_ID",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.client.fe.dev:latest",
+        "./arcadia.client.fe",
+      ]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/arcadia.client.fe.dev"]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud compute ssh --zone "${_ZONE}" "${_INSTANCE}" --command "
+        cd /home/arcadia
+        docker stop arcadia_client_fe
+        docker-compose pull arcadia-client-fe
+        docker-compose create arcadia-client-fe
+        docker-compose start arcadia-client-fe
+        "
+        wait

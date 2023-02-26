@@ -1,0 +1,92 @@
+@import './variables.scss';
+
+.checkbox {
+  display: flex;
+  width: 100%;
+  text-align: left;
+}
+
+.checkbox--disabled {
+  pointer-events: none;
+  opacity: $checkbox-disabled-opacity;
+}
+
+.checkbox__container {
+  display: inline-flex;
+  align-items: center;
+
+  &:hover,
+  &:focus {
+    .checkbox__checkmark-top-pad {
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+.checkbox__label {
+  @include smooth-resize(10, margin-left);
+  @include font-size2;
+  order: 1;
+  color: inherit;
+  cursor: pointer;
+  /* stylelint-disable */
+  &:focus {
+    &+.checkbox__checkmark-container .checkbox__checkmark-bottom-pad {
+      stroke: $checkbox-checked-background-color;
+    }
+  }
+  /* stylelint-enable */
+}
+
+.checkbox__checkmark-container {
+  @include smooth-resize(18, width);
+  flex-shrink: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  transform: scale(1.001);
+}
+
+.checkbox__checkmark-bottom-pad,
+.checkbox__checkmark-top-pad {
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 80px;
+  stroke-dashoffset: 80px;
+  fill: transparent;
+  stroke: $checkbox-border-color;
+}
+
+.checkbox__checkmark-bottom-pad {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset $animation-time, fill $animation-time;
+}
+
+.checkbox__checkmark-top-pad {
+  stroke: $checkbox-checked-background-color;
+  transition: stroke-dashoffset $animation-time, fill $animation-time;
+}
+
+.checkbox__checkmark {
+  fill: transparent;
+  stroke: $checkbox-checkmark-color;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 100%;
+  stroke-dashoffset: 100%;
+  transition: stroke-dashoffset $animation-time;
+}
+
+.checkbox--checked {
+  .checkbox__checkmark-top-pad {
+    stroke-dashoffset: 0;
+    fill: $checkbox-checked-background-color;
+    transition: stroke-dashoffset $animation-time, fill $animation-time;
+  }
+
+  .checkbox__checkmark {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset $animation-time $animation-time / 2;
+  }
+}

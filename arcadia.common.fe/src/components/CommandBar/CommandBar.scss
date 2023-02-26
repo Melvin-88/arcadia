@@ -1,0 +1,31 @@
+.command-bar {
+  @include smooth-resize-padding(0, 50, 8, 42);
+  border-bottom: 1px solid rgba($color-firm2, 0.6);
+  display: flex;
+  align-items: center;
+}
+
+.command-bar__btn {
+  @include smooth-resize-margin(0, 10, 0, 0);
+  background: none;
+  min-width: inherit;
+  border-radius: 0;
+  border: none;
+  transition: opacity $animation-time, transform $animation-time;
+
+  &:hover,
+  &:focus {
+    box-shadow: none;
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+.command-bar__btn-icon {
+  @include smooth-resize(25, width);
+  @include smooth-resize-margin(0, 10, 0, 0);
+  display: block;
+}

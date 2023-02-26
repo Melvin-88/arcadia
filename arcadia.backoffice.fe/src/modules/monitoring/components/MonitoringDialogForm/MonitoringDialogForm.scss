@@ -1,0 +1,36 @@
+.monitoring-dialog-form {
+  @include smooth-resize(880, max-width);
+  width: 100%;
+}
+
+.monitoring-dialog-form__fields-groups {
+  @include smooth-resize(30, grid-column-gap);
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.monitoring-dialog-form__field {
+  @include smooth-resize(250, width);
+}
+
+.monitoring-dialog-form__fields-container {
+  @include smooth-resize(25, margin-top);
+  @include smooth-resize(10, grid-column-gap);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(auto, 1fr));
+  align-items: center;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.monitoring-dialog-form__password-field {
+  display: flex;
+  align-items: center;
+}
+
+.monitoring-dialog-form__password-field-container {
+  @include smooth-resize(375, max-width);
+  margin-left: auto;
+}

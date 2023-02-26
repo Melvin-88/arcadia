@@ -1,0 +1,7 @@
+.active-and-new-players {
+  @include smooth-resize(190, min-height);
+}
+
+.active-and-new-players__chart {
+  @include smooth-resize(120, height);
+}

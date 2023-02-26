@@ -1,0 +1,20 @@
+.dialog-action {
+  @include smooth-resize(600, max-width);
+  width: 100%;
+}
+
+.dialog-action__field {
+  @include smooth-resize(10, gap);
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+}
+
+.dialog-action__text {
+  @include smooth-resize-padding(45, 0, 45, 0);
+  text-align: center;
+}
+
+.dialog-action__footer {
+  justify-content: space-around;
+}

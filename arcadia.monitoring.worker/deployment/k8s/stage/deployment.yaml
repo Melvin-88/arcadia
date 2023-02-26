@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monitoring-worker
+  labels:
+    app: monitoring-worker
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: monitoring-worker
+  template:
+    metadata:
+      labels:
+        app: monitoring-worker
+    spec:
+      volumes:
+        - name: google-cloud-key
+          secret:
+            secretName: sm-key
+      containers:
+        - name: monitoring-worker
+          image: gcr.io/studio-staging-294712/arcadia.monitoring.worker.stage:latest
+          volumeMounts:
+            - name: google-cloud-key
+              mountPath: /var/secrets/google
+          imagePullPolicy: Always
+          env:
+            - name: NODE_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: NODE_ENV
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: MW_API_PORT
+            - name: USE_GCP_SM
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: USE_GCP_SM
+            - name: API_VERSION
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: MW_API_VERSION
+            - name: GCP_PROJECT
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: GCP_PROJECT
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /var/secrets/google/key.json

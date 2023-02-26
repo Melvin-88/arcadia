@@ -1,0 +1,5 @@
+.history-dialog {
+  @include smooth-resize(1360, max-width);
+  @include smooth-resize(600, min-height);
+  width: 100%;
+}

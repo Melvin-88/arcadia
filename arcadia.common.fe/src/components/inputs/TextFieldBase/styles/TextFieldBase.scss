@@ -1,0 +1,102 @@
+@import './variables.scss';
+
+@font-face {
+  font-family: 'Password Secure';
+  src: url('../../../../assets/fonts/password.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.text-field {
+  display: block;
+}
+
+.text-field--disabled {
+  opacity: $text-field-disabled-opacity;
+  pointer-events: none;
+}
+
+.text-field--error {
+  .text-field__input {
+    border-color: $text-field-error-color;
+  }
+
+  .text-field__helper-text {
+    color: $text-field-error-color;
+  }
+}
+
+.text-field--password-secure {
+  .text-field__input {
+    font-family: 'Password Secure';
+
+    &::placeholder {
+      font-family: inherit;
+    }
+  }
+}
+
+.text-field__preload-password-font {
+  display: block;
+  font-family: 'Password Secure';
+  font-size: 0;
+}
+
+.text-field__label {
+  @include smooth-resize(5, margin-bottom);
+  @include font-size3;
+  display: block;
+  font-weight: 500;
+  color: $text-field-label-color;
+  white-space: nowrap;
+}
+
+.text-field__container {
+  width: 100%;
+}
+
+.text-field__input {
+  @include smooth-resize(32, height);
+  @include smooth-resize(32, line-height);
+  @include smooth-resize-padding(0, 10, 0, 10);
+  @include font-size2;
+  appearance: none;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid $text-field-border-color;
+  width: 100%;
+  color: $text-field-input-color;
+  background: none;
+  transition: border-color $animation-time;
+  /* stylelint-disable */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* stylelint-enable */
+  &::placeholder {
+    color: $text-field-placeholder-color;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: $text-field-hover-focus-border-color;
+  }
+
+  &:active {
+    border-color: $text-field-active-border-color;
+  }
+}
+
+.text-field--textarea {
+  height: auto;
+}
+
+.text-field__helper-text {
+  @include smooth-resize(5, margin-top);
+  @include font-size5;
+  min-height: 1.2em;
+  line-height: 1.2;
+  color: $text-field-helper-text-color;
+}

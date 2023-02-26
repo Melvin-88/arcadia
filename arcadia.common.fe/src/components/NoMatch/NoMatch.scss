@@ -1,0 +1,24 @@
+.no-match {
+  @include smooth-resize-padding(90, 10, 40, 10);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.no-match__icon {
+  @include smooth-resize(15, margin-bottom);
+  @include smooth-resize(250, width);
+  fill: $color-firm10;
+}
+
+.no-match__title {
+  @include smooth-resize(25, margin-bottom);
+  @include smooth-resize(30);
+}
+
+.no-match__description {
+  @include smooth-resize(15, margin-bottom);
+  @include font-size3;
+}

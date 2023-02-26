@@ -1,0 +1,91 @@
+@import './variables';
+@import '../../../../styles/animations';
+
+.dialog {
+  @include smooth-resize-padding(0, 30, 0, 30);
+  @include smooth-resize(300, min-width);
+  @include font-size2;
+  display: flex;
+  flex-direction: column;
+  background: $dialog-background;
+  border-radius: 3px;
+  max-height: calc(100% - 60px);
+  animation: fade-in-from-top $animation-time;
+}
+
+.dialog--wide {
+  padding: 0;
+}
+
+.dialog__header {
+  @include smooth-resize-padding(15, 15, 15, 15);
+  @include font-size1;
+  border-bottom: 1px solid $dialog-body-border-color;
+  position: relative;
+  color: $dialog-header-color;
+  text-align: center;
+}
+
+.dialog__header-btn {
+  @include smooth-resize(35, width);
+  @include smooth-resize-padding(2, 2, 2, 2);
+  @include smooth-resize(10, top);
+  @include smooth-resize(0, right);
+  position: absolute;
+  background: none;
+  outline: none;
+  border-radius: 50%;
+  border: none;
+  transition: background $animation-time;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background: $dialog-button-hover-background;
+
+    .dialog__header-btn-icon {
+      fill: $dialog-button-hover-icon-color;
+    }
+  }
+
+  &:active {
+    background: $dialog-button-active-background;
+
+    .dialog__header-btn-icon {
+      fill: $dialog-button-active-icon-color;
+    }
+  }
+}
+
+.dialog__header-btn-icon {
+  display: block;
+  width: 100%;
+  fill: $dialog-button-icon-color;
+  transition: fill $animation-time;
+}
+.dialog__body--default {
+  @include arcadia-custom-scrollbar();
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.dialog__body--wide {
+  @include smooth-resize-padding(15, 0, 15, 0);
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog__footer--default {
+  @include smooth-resize-padding(20, 0, 20, 0);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid $dialog-body-border-color;
+}
+
+.dialog__footer--wide {
+  @include smooth-resize-padding(15, 25, 15, 25);
+  border-top: none;
+}

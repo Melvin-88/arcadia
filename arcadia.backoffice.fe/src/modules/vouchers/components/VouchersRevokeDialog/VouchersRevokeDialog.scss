@@ -1,0 +1,18 @@
+.vouchers-revoke-dialog {
+  @include smooth-resize(600, width);
+}
+
+.vouchers-revoke-dialog__message {
+  @include smooth-resize(20, margin-top);
+  @include smooth-resize(40, margin-bottom);
+  text-align: center;
+}
+
+.vouchers-revoke-dialog__group {
+  @include smooth-resize(30, margin-bottom);
+  @include smooth-resize(10, grid-column-gap);
+  @include smooth-resize(10, grid-row-gap);
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  align-items: center;
+}

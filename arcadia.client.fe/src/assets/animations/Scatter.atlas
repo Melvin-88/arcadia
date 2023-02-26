@@ -1,0 +1,258 @@
+
+Scatter.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Shine
+  rotate: true
+  xy: 2, 43
+  size: 467, 439
+  orig: 490, 451
+  offset: 10, 1
+  index: -1
+Star
+  rotate: false
+  xy: 2, 3
+  size: 28, 38
+  orig: 33, 44
+  offset: 3, 3
+  index: -1
+a
+  rotate: false
+  xy: 933, 155
+  size: 151, 176
+  orig: 157, 180
+  offset: 3, 2
+  index: -1
+a1
+  rotate: true
+  xy: 1478, 63
+  size: 112, 103
+  orig: 118, 107
+  offset: 3, 2
+  index: -1
+a2
+  rotate: true
+  xy: 1520, 233
+  size: 112, 103
+  orig: 118, 107
+  offset: 3, 2
+  index: -1
+aGlow
+  rotate: false
+  xy: 1235, 175
+  size: 141, 166
+  orig: 145, 168
+  offset: 2, 1
+  index: -1
+c
+  rotate: false
+  xy: 786, 102
+  size: 145, 177
+  orig: 150, 182
+  offset: 2, 3
+  index: -1
+cGlow
+  rotate: false
+  xy: 1107, 343
+  size: 135, 167
+  orig: 138, 170
+  offset: 1, 2
+  index: -1
+d
+  rotate: true
+  xy: 1625, 294
+  size: 103, 102
+  orig: 107, 107
+  offset: 2, 3
+  index: -1
+e
+  rotate: false
+  xy: 815, 333
+  size: 141, 177
+  orig: 146, 182
+  offset: 3, 3
+  index: -1
+e2
+  rotate: true
+  xy: 891, 19
+  size: 81, 103
+  orig: 86, 107
+  offset: 2, 2
+  index: -1
+e3
+  rotate: false
+  xy: 1688, 189
+  size: 81, 103
+  orig: 86, 107
+  offset: 3, 2
+  index: -1
+eGlow
+  rotate: false
+  xy: 1345, 7
+  size: 131, 166
+  orig: 134, 170
+  offset: 2, 2
+  index: -1
+f
+  rotate: false
+  xy: 1729, 302
+  size: 81, 103
+  orig: 86, 107
+  offset: 2, 2
+  index: -1
+l
+  rotate: false
+  xy: 1732, 407
+  size: 80, 103
+  orig: 84, 107
+  offset: 2, 2
+  index: -1
+n
+  rotate: true
+  xy: 1583, 12
+  size: 106, 102
+  orig: 110, 107
+  offset: 2, 3
+  index: -1
+o
+  rotate: true
+  xy: 1522, 399
+  size: 111, 105
+  orig: 116, 109
+  offset: 2, 2
+  index: -1
+p
+  rotate: true
+  xy: 786, 7
+  size: 93, 103
+  orig: 98, 107
+  offset: 2, 2
+  index: -1
+r
+  rotate: false
+  xy: 531, 45
+  size: 165, 181
+  orig: 169, 185
+  offset: 2, 3
+  index: -1
+r2
+  rotate: false
+  xy: 1629, 407
+  size: 101, 103
+  orig: 106, 107
+  offset: 2, 2
+  index: -1
+r3
+  rotate: false
+  xy: 1771, 198
+  size: 100, 102
+  orig: 106, 107
+  offset: 3, 3
+  index: -1
+rGlow
+  rotate: true
+  xy: 1173, 2
+  size: 155, 170
+  orig: 157, 173
+  offset: 1, 2
+  index: -1
+s
+  rotate: false
+  xy: 958, 334
+  size: 147, 176
+  orig: 151, 180
+  offset: 2, 2
+  index: -1
+sGlow
+  rotate: false
+  xy: 1244, 344
+  size: 137, 166
+  orig: 140, 168
+  offset: 2, 1
+  index: -1
+t
+  rotate: false
+  xy: 1086, 159
+  size: 147, 173
+  orig: 153, 177
+  offset: 3, 2
+  index: -1
+t2
+  rotate: true
+  xy: 996, 3
+  size: 150, 175
+  orig: 155, 179
+  offset: 2, 2
+  index: -1
+t2Glow
+  rotate: false
+  xy: 1378, 177
+  size: 140, 165
+  orig: 143, 167
+  offset: 1, 1
+  index: -1
+tGlow
+  rotate: false
+  xy: 1383, 347
+  size: 137, 163
+  orig: 141, 165
+  offset: 2, 1
+  index: -1
+the
+  rotate: true
+  xy: 721, 281
+  size: 229, 92
+  orig: 234, 96
+  offset: 3, 2
+  index: -1
+theGlow
+  rotate: true
+  xy: 443, 4
+  size: 222, 86
+  orig: 226, 88
+  offset: 2, 1
+  index: -1
+u
+  rotate: true
+  xy: 1687, 14
+  size: 104, 103
+  orig: 109, 108
+  offset: 2, 3
+  index: -1
+won
+  rotate: true
+  xy: 443, 228
+  size: 282, 93
+  orig: 286, 98
+  offset: 2, 3
+  index: -1
+wonGlow
+  rotate: true
+  xy: 538, 236
+  size: 274, 86
+  orig: 278, 90
+  offset: 2, 2
+  index: -1
+y
+  rotate: true
+  xy: 1583, 120
+  size: 111, 103
+  orig: 117, 107
+  offset: 3, 2
+  index: -1
+you
+  rotate: true
+  xy: 626, 261
+  size: 249, 93
+  orig: 254, 98
+  offset: 3, 3
+  index: -1
+youGlow
+  rotate: true
+  xy: 698, 17
+  size: 242, 86
+  orig: 246, 90
+  offset: 2, 2
+  index: -1

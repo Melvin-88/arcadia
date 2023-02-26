@@ -1,0 +1,18 @@
+.expand-btn {
+  display: block;
+  background: none;
+  border: none;
+  outline: none;
+  transform: rotate(0deg);
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+}
+
+.expand-btn--active {
+  transform: rotate(180deg);
+}

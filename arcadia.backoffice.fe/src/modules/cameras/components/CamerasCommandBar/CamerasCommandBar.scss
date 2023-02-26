@@ -1,0 +1,10 @@
+.cameras-command-bar__form {
+  display: flex;
+  align-items: center;
+}
+
+.cameras-command-bar__site-name-field {
+  @include smooth-resize(150, width);
+  @include smooth-resize(20, margin-right);
+  @include smooth-resize(20, margin-left);
+}

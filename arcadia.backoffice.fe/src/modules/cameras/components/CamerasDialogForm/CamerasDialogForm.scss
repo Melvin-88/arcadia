@@ -1,0 +1,50 @@
+.cameras-dialog-form {
+  @include smooth-resize(880, max-width);
+  width: 100%;
+}
+
+.cameras-dialog-form__fields-groups {
+  display: flex;
+}
+
+.cameras-dialog-form__fields-group {
+  @include smooth-resize-margin(-12, 65, 0, 0);
+  display: inline-table;
+  flex: 1;
+
+  &:nth-child(2n) {
+    margin-right: 0;
+  }
+}
+
+.cameras-dialog-form__field-container {
+  display: table-row;
+}
+
+.cameras-dialog-form__field-label {
+  @include smooth-resize-padding(12, 32, 0, 0);
+  display: table-cell;
+  white-space: nowrap;
+}
+
+.cameras-dialog-form__field {
+  @include smooth-resize-padding(12, 0, 0, 0);
+  display: table-cell;
+  width: 100%;
+}
+
+.cameras-dialog-form__password-field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cameras-dialog-form__password-field-label {
+  @include smooth-resize-margin(0, 49, 0, 0);
+  @include font-size2;
+}
+
+.cameras-dialog-form__password-field-container {
+  @include smooth-resize(375, max-width);
+  margin-left: auto;
+}

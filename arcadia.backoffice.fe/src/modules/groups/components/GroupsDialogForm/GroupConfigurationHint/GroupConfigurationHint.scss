@@ -1,0 +1,9 @@
+.group-configuration-hint {
+  @include smooth-resize(250, min-width);
+  @include smooth-resize-padding(5, 15, 5, 15);
+  @include font-size4;
+}
+
+.group-configuration-hint__list {
+  @include smooth-resize-padding(15, 0, 15, 0);
+}

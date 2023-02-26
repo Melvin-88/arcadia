@@ -1,0 +1,28 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-f",
+        "arcadia.game.core.worker/Dockerfile",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.game.core.worker.dev:$BUILD_ID",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.game.core.worker.dev:latest",
+        ".",
+      ]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/arcadia.game.core.worker.dev"]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud compute ssh --zone "${_ZONE}" "${_INSTANCE}" --command "
+        cd /home/arcadia
+        docker stop arcadia_game_core_worker_1
+        docker-compose pull game_core_worker_1
+        docker-compose create game_core_worker_1
+        docker-compose start game_core_worker_1
+        "
+        wait

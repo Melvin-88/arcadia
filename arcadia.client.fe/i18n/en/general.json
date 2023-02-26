@@ -1,0 +1,343 @@
+{
+  "UserEvents": {
+    "Buy": {
+      "DefaultError": "Oops! Something went wrong while Buying coins"
+    },
+    "FireStop": {
+      "DefaultError": "Oops! Something went wrong while the fire stopping"
+    },
+    "Rail": {
+      "SendPositionError": "Oops! Something went wrong while sending rail position"
+    },
+    "SoundsConfig": {
+      "ChangeError": "Oops! Something went wrong while changing sounds config"
+    },
+    "LoginError": {
+      "OperatorUnexpectedStateException": "Operator not found or disabled!",
+      "AuthFailedException": "Player auth failed!"
+    }
+  },
+  "SystemEvents": {
+    "PubSubConnect": {
+      "DefaultError": "Oops! Something went wrong while establishing a connection to the server"
+    }
+  },
+  "AutoplaySetupSnackbar": {
+    "StopIfSingleWinIsAbove": "Stop if single win is above",
+    "AutoplaySetup": "Autoplay Setup",
+    "StopAfter": "Stop After",
+    "StopIfJackpotIsWon": "Stop if jackpot is won",
+    "AutoSwing": "Auto Swing"
+  },
+  "RoundsCounter": {
+    "BetRounds": "Bet / Rounds"
+  },
+  "GroupCard": {
+    "Bet": "Bet:",
+    "PositionInQueue": "Your approximate position in the queue will be: #{{queueLength}}",
+    "Play": "Play"
+  },
+  "ShortestQueueProposal": {
+    "PlayImmediately": "You can play immediately",
+    "ShortestQueue": "Shortest Queue",
+    "PositionInQueue": "Your approximate position in the queue will be: #{{queueLength}}",
+    "AcceptNotification": "Thank you for your request. We're going to redirect you to a different machine 🤖"
+  },
+  "Menu": {
+    "Titles": {
+      "Settings": "Settings",
+      "GameRules": "Game Rules",
+      "Tutorial": "Tutorial",
+      "GoToTheLobby": "Go to the Lobby",
+      "PayTable": "Pay Table"
+    },
+    "PayTablePanel": {
+      "Equal": "Equal",
+      "PhantomChip": "Phantom Chip",
+      "PhantomChipInfo": "Dropping a phantom chip will automatically start the bonus round where you can win even more prizes or free rounds of play.",
+      "Chips": "Chips"
+    },
+    "SettingsPanel": {
+      "Sounds": "Sounds",
+      "MachineSounds": "Machine Sounds",
+      "GameSounds": "Game Sounds"
+    }
+  },
+  "FortuneWheel": {
+    "Scatter": "SCATTER"
+  },
+  "QueueBar": {
+    "You": "You"
+  },
+  "OperatorLobby": {
+    "WelcomeText": "Welcome to Operator's Lobby"
+  },
+  "RoundProgressIndicator": {
+    "YourStacks": "Your\nStacks"
+  },
+  "JackpotIndicator": {
+    "Activate": "Activate"
+  },
+  "Jackpot": {
+    "Loading": "Loading..."
+  },
+  "BuySnackbar": {
+    "Rebuy": "Rebuy",
+    "Buy": "Buy",
+    "CurrentBet": "Current Bet:",
+    "StackCoinSize": "One stack = {{stackSize}} coin",
+    "StackCoinSize_plural": "One stack = {{stackSize}} coins",
+    "AutoplaySetup": "Autoplay\nSetup",
+    "ChangeBet": "Change\nBet",
+    "VoucherExpired": "Your voucher has expired. We trying to find new voucher for you while you enjoy your game."
+  },
+  "BuyConfirmButton": {
+    "Coins": "{{coins}} Coin",
+    "Coins_plural": "{{coins}} Coins",
+    "TotalAmount": "Total Amount:",
+    "Buy": "Buy"
+  },
+  "Switch": {
+    "Off": "Off",
+    "On": "On"
+  },
+  "BetBehindSnackbar": {
+    "StopIfSingleWinIsAbove": "Stop if single win is above",
+    "StopIfJackpotIsWon": "Stop if jackpot is won",
+    "BetBehindSetup": "Bet Behind Setup",
+    "StopAfter": "Stop After"
+  },
+  "GameFooter": {
+    "Balance": "Balance: ",
+    "Bet": "Bet: "
+  },
+  "Game": {
+    "Timer": {
+      "LetsPlay": "Hey! Where're you? Let's play... 😉",
+      "LastCoin": "We're shooting your last coins for you… 🕗",
+      "SecondsLeftToRebuy": "{{graceTimeoutSec}} seconds left to re-buy… 🕗"
+    }
+  },
+  "VideoStream": {
+    "Failed": "Video Failed",
+    "Loading": "Loading live stream..."
+  },
+  "Root": {
+    "Loading": "Please wait. We're loading the game..."
+  },
+  "Lobby": {
+    "PreparingGroup": "We're preparing machine for you 🤖 \nPlease wait..."
+  },
+  "Auth": {
+    "Verification": "We're verifying you 🕗\n Please wait..."
+  },
+  "Api": {
+    "Errors": {
+      "TryAgainLater": "Oops! Something went wrong. Please try again later."
+    }
+  },
+  "ControlPanel": {
+    "SessionId": "Session ID {{sessionId}}"
+  },
+  "ChipWin": {
+    "Phantom": "Phantom",
+    "Identifying": "Identifying",
+    "YouWon": "You won"
+  },
+  "ChipsBar": {
+    "PhantomChip": "Phantom Chip"
+  },
+  "BetBehindStatusBar": {
+    "BetBehind": "Bet Behind",
+    "Behind": "Behind",
+    "Bet": "Bet",
+    "Stop": "Stop",
+    "StartsInNextRound": "Starts in next round",
+    "EndsAfterThisRound": "Ends after this round"
+  },
+  "IdleTimeoutIndicator": {
+    "Sec": "sec"
+  },
+  "ChangeBetSnackbar": {
+    "ChangeBet": "Change Bet",
+    "ChangingGroup": "We're changing machine for you 🤖 \nPlease wait...",
+    "LookingForBets": "We're looking for other bets for you. \nPlease, wait..."
+  },
+  "GroupInfoDialog": {
+    "Title": "Group Info",
+    "Bet": "Bet: {{bet}}",
+    "ChipsValue": "Chips Value",
+    "Phantom": "Phantom"
+  },
+  "ResultDialog": {
+    "Title": "Session Result"
+  },
+  "LostConnectionOverlay": {
+    "Text": "Connection lost"
+  },
+  "MachineSeedingOverlay": {
+    "Message": "We're seeding machine for you 🤖 \nPlease wait..."
+  },
+  "QueueLeaveConfirmDialog": {
+    "Title": "Leave the Queue?",
+    "Message": "If you leave the queue you will lost your position. Are you sure?"
+  },
+  "CancelStacksConfirmDialog": {
+    "Title": "Cancel Stack",
+    "Message": "Are you sure you want to cancel your remaining stack?"
+  },
+  "ConfirmDialog": {
+    "Confirm": "Confirm",
+    "Cancel": "Cancel"
+  },
+  "QuitConfirmDialog": {
+    "Title": "Leave Game",
+    "Message": "Are you sure you want to leave this game?"
+  },
+  "Tutorial": {
+    "Title": "Tutorial",
+    "Screen1": {
+      "Step1": "Click here to purchase stacks to enter the game.",
+      "Step2": "You can see the queue for the machine.",
+      "Step3": "List of prizes and their corresponding chip colors."
+    },
+    "Screen2": {
+      "Step1": "Aim the coin gun.",
+      "Step2": "Push to fire the coins.",
+      "Step3": "The coins will be fired onto the playing field.",
+      "Step4": "Your aim - to get the colored chips to fall off the ledge!"
+    },
+    "Screen3": {
+      "Step1": "Opt in to play our additional jackpot game.",
+      "Step2": "The bonus round wheel will spin automatically every time you drop a phantom chip."
+    },
+    "Screen4": {
+      "Step1": "Countdown timer - time remaining for you to take action.",
+      "Step2": "Number of stacks you have remaining and the number of coins in the current stack."
+    },
+    "Screen5": {
+      "Step1": "Options for autoplay and bet behind.",
+      "Step2": "Select the number of rounds you would like to play.",
+      "Step3": "Stop if you win more than this amount.",
+      "Step4": "Stop if any jackpot is won.",
+      "Step5": "When ON the direction of aim will continuously change. When OFF the aim will remain constant unless you move it manually."
+    }
+  },
+  "GameRules": {
+    "Title": "Game rules",
+    "Screen1": {
+      "Title": "Introduction",
+      "Content": "<paragraph>The Live Coin Pusher combines a traditional, familiar coin pusher machine with the excitement of real money gaming streamed live to your client. Coins are fired out of a coin <highlighted>cannon (1)</highlighted> by the player onto the <highlighted>shelf (2)</highlighted> and the objective of the game is to cause the colored chips to fall off the <highlighted>ledge (3)</highlighted>. Dropping a colored chip will award you with the face value for that color chip. Dropping a ‘Phantom’ chip will trigger a bonus round where you can win even more prizes.</paragraph><paragraph>Note - the silver coins are used only to assist you in pushing the colored chips and do not have any monetary value.</paragraph>"
+    },
+    "Screen2": {
+      "Title": "Getting started",
+      "Content": "<list><item>Select the bet size you would like to play for.</item><item>You will be assigned a machine with the selected bet size, will be able to watch the game and to see how many people are in the queue in front of you.</item><item>In order to join the game you will be required to buy ‘stacks’ of coins. Each stack costs 1 x the bet size you selected and will give you 20 coins to fire. You are not charged for your stacks at this stage but we will check if you have enough balance to cover the purchase.</item><item>After committing to purchase stacks, you will be placed in the queue for the machine and await your turn.</item></list>"
+    },
+    "Screen3": {
+      "Title": "Entering the game",
+      "Content": "<paragraph>Once your turn arrives, you will be placed in control of the machine meaning that you can decide the speed and direction of firing the coins.</paragraph><paragraph>While you are waiting, you will be able to place bets on the current players so you can win whenever they win! This is our ‘Bet behind’ option to play which means that you will be able to participate in the game and place bets, but the speed and direction are performed by the controlling player on that machine.</paragraph>"
+    },
+    "Screen4": {
+      "Title": "How to play",
+      "Content": "<list><item>Using the aiming slider you will be able to move the cannon to the left and to the right deciding which direction to fire your coins in.</item><item>It is also possible to use ‘Auto Swing’ which will slowly move the cannon from side to side repeatedly (only available in Autoplay mode).</item><item>Press the ‘Fire’ button to dispense coins from the cannon. Coins will continue to be dispensed until you release the button.</item>  <item>You are given a limited amount of time to fire your coins, displayed in the top left of the screen. If that time passes and there are coins remaining in your stack, the remaining coins will be fired automatically.</item>  <item>Any colored chips that fall off the ledge will award you with a win amount (see section on winning below).</item><item>When your stacks are empty, you will be given a limited time to purchase additional stacks and continue your play.</item>  <item>You can also select ‘Autoplay’ where you can continue playing until one of a number of available conditions are met.</item><item>Clicking on the ‘Change Bet’ button will allow you to select a different bet size and you will be taken to a different machine.</item></list>"
+    },
+    "Screen5": {
+      "Title": "Winning",
+      "Content": "<list><item>Colored chips that drop off the ledge each have a monetary value defined in the pay table.</item><item>Phantom chip (multi color) - grants you a chance to win even more or a scatter prize that will award you with another stack of 20 coins.</item></list>"
+    },
+    "Screen6": {
+      "Title": "Bonus game - Spin to Win",
+      "Content": "<paragraph>Dropping a phantom chip will automatically spin the lucky wheel at the top of the screen. Your prize is indicated on the winning slice marked by an arrow.</paragraph><paragraph>You can either win a monetary prize or a scatter prize. The scatter will award you with another stack of coins that are added to your coins balance.</paragraph>"
+    },
+    "Screen7": {
+      "Title": "Bet behind",
+      "Content": "<paragraph>‘Bet behind’ allows you to participate in the game and place bets but the speed and direction are performed by the controlling player on that machine. Your ‘Bet behind’ will continue playing until any of the available conditions are met:</paragraph><list><item>Stop after a selected number of rounds.</item><item>Stop if there is a single win above a selected value.</item><item>Stop if a jackpot is won.</item></list>"
+    },
+    "Screen8": {
+      "Title": "Autoplay",
+      "Content": "<paragraph>You can also select to ‘Autoplay’ where you can continue playing until any of the available conditions are met:</paragraph><list><item>Stop after a selected number of rounds.</item><item>Stop if there is a single win above a selected value.</item><item>Stop if a jackpot is won.</item></list><paragraph>In addition you can choose to switch ‘Auto swing’ on or off - when ON the direction of aim will continuously change. When OFF the aim will remain constant.</paragraph>"
+    },
+    "Screen9": {
+      "Title": "Jackpot game",
+      "Content": "<paragraph>We also offer a jackpot side game where you can place a bet and get a chance at winning the jackpot amount displayed at the top of the screen. The jackpot game is available to players placing a bet on the coin pusher but it is a separate game and does not rely on the results of the coin pusher.</paragraph><paragraph>In order to place a bet on the jackpot, you may be required to ‘opt-in’ to the jackpot at the top of the screen (where the jackpot amount is displayed). You will participate in the jackpot game until you opt out of the game. Please note that the jackpot bet is not included in the bet amount for the Live Coin Pusher.</paragraph>"
+    },
+    "Screen10": {
+      "Title": "Pay table",
+      "Content": "<paragraph>Depending on your currency, the values specified below may differ and will be displayed in your client with the values specific to your account currency.</paragraph><paragraph><highlighted>Pay Table</highlighted> - displays the values of each of the colored chips in addition to the Phantom chip winnings.</paragraph>"
+    },
+    "Screen11": {
+      "Title": "User Interface",
+      "Content": "<paragraph>The player’s balance and the active session ID are always displayed at the bottom of the screen.</paragraph><paragraph>The following areas and buttons are available in the game:</paragraph><paragraph>1. Top left - <highlighted>timer</highlighted> displaying the amount of time you have to complete the next move.</paragraph><paragraph>2. Top right - <highlighted>stack indicator</highlighted>, shows the number of stacks you purchased and the number of coins remaining to fire in the current stack.</paragraph>"
+    },
+    "Screen12": {
+      "Title": "User Interface",
+      "Content": "<paragraph>1. Left - <highlighted>queue indicator</highlighted>. Shows the number of people playing in front of you or while in game displays the number of people betting behind or queuing behind you.</paragraph><paragraph>2. Right side - <highlighted>list of chips</highlighted> and their corresponding monetary values.</paragraph>"
+    },
+    "Screen13": {
+      "Title": "User Interface",
+      "Content": "<paragraph>1. <highlighted>Buy button</highlighted> - allows you to purchase stacks of coins to begin playing (only available while waiting for a place in the queue).</paragraph><paragraph>2. <highlighted>Fire button</highlighted> - fires a single coin in the direction you aim (only available while in play mode). While you are in Autoplay mode the button will change to ‘Stop’ which will cause the machine to stop firing coins.</paragraph>"
+    },
+    "Screen14": {
+      "Title": "User Interface",
+      "Content": "<paragraph>1. <highlighted>+/- buttons</highlighted> - allow you to select how many stacks of coins you would like to purchase (on ‘Buy’ screen).</paragraph><paragraph>2. <highlighted>Voucher</highlighted> - allows you to purchase stacks of coins using a voucher (on ‘Buy’ screen).</paragraph>"
+    },
+    "Screen15": {
+      "Title": "User Interface",
+      "Content": "<paragraph>1. <highlighted>Bet behind</highlighted> - allows you to enter ‘Bet behind’ mode and purchase stacks of coins. While you are in ‘Bet behind’ mode, the button will change to ‘Stop’ which will exit ‘Bet behind’ mode.</paragraph><paragraph>2. <highlighted>Aim slider</highlighted> - move the cannon left and right in order to aim where the coins will be shot.</paragraph>"
+    },
+    "Screen16": {
+      "Title": "User Interface",
+      "Content": "<paragraph><highlighted>Bet behind setup screen</highlighted> - you can define stop conditions for your bet behind session:</paragraph><list><item>Stop after X number of rounds.</item><item>Stop if there is a single win above the selected value.</item><item>Stop if a jackpot is won.</item></list>"
+    },
+    "Screen17": {
+      "Title": "User Interface",
+      "Content": "<paragraph>1. <highlighted>Auto swing</highlighted> - will cause the aim to continuously move from side to side automatically (only available while in play mode).</paragraph><paragraph>2. <highlighted>Mute</highlighted> - mutes all game and machine sounds.</paragraph><paragraph>3. <highlighted>Autoplay button</highlighted> - allows you to enter the screen for defining Autoplay criteria and to begin Autoplay mode.</paragraph>"
+    },
+    "Screen18": {
+      "Title": "User Interface",
+      "Content": "<paragraph><highlighted>Autoplay setup screen</highlighted> - you can define conditions when to stop your autoplay session.</paragraph><list><item>Stop after a selected number of rounds.</item><item>Stop if there is a single win above a selected value.</item><item>Stop if a jackpot is won.</item><item>Auto swing on/off - when ON the direction of aim will continuously change. When OFF the aim will remain constant.</item></list>"
+    },
+    "Screen19": {
+      "Title": "User Interface",
+      "Content": "<paragraph>1. <highlighted>Change bet</highlighted> - allows you to change the bet size (denomination) of the game. Selecting a different denomination will move you to a different machine.</paragraph><paragraph>2. <highlighted>Menu button</highlighted> at the top of the screen will open a menu with options to change the settings, see the game rules, pay table and the tutorial. In addition allows you to return to the lobby.</paragraph>"
+    },
+    "Screen20": {
+      "Title": "User Interface",
+      "Content": "<paragraph><highlighted>Game settings:</highlighted></paragraph><list><item>Machine sounds volume - the volume of the sounds heard by the on site microphones.</item><item>Game sounds volume - the volume of the sounds that are part of the digital game.</item><item>Regulation settings.</item></list>"
+    },
+    "Screen21": {
+      "Title": "User Interface",
+      "Content": "<paragraph>At the bottom of the screen you can see:</paragraph><list><item>The current time</item><item>The ID of your current session</item><item>Your wallet balance</item><item>Your last bet amount</item></list>"
+    },
+    "Screen22": {
+      "Title": "Tutorial button",
+      "Content": "<paragraph>A tutorial to familiarize you with the game controls and buttons.</paragraph>"
+    },
+    "Screen23": {
+      "Title": "Live Games",
+      "Content": "<paragraph>Please note that the Live Coin Pusher includes live video feeds. Video latency may occur due to the nature of the internet, but we make every effort to limit disconnections or delays.</paragraph>"
+    },
+    "Screen24": {
+      "Title": "Game disconnection",
+      "Content": "<paragraph>In the case that your game is disconnected in the middle of the stack of coins, the machine will continue your game in ‘Autoplay’ mode until completion of the game, after which you will receive your winnings into your account.</paragraph>"
+    },
+    "Screen25": {
+      "Title": "RTP",
+      "Content": "<paragraph>The expected return to player for the Live Coin Pusher game is XXX%.</paragraph>"
+    }
+  },
+  "Notification": {
+    "insufficientFunds": "You don't have enough money to play! The available count of stacks to buy: {{value}}",
+    "roundLimitReached": "The rounds limit is reached",
+    "betFailed": "Bet failed. Please try again later",
+    "loginFailed": "Login failed. Please try again later",
+    "payoutFailed": "Something went wrong while the payout process",
+    "restoreConnectionFailed": "Sorry but we can't restore your connection"
+  },
+  "App": {
+    "ReturnToLobbyToast": "Bye! See you again soon… \uD83D\uDE09"
+  },
+  "Exit": {
+    "Title": "Please use operator controls to exit the game"
+  }
+}

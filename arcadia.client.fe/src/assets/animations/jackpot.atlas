@@ -1,0 +1,209 @@
+
+jackpot.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+A
+  rotate: false
+  xy: 1062, 2
+  size: 94, 129
+  orig: 98, 133
+  offset: 2, 2
+  index: -1
+C
+  rotate: false
+  xy: 1269, 213
+  size: 92, 132
+  orig: 96, 136
+  offset: 2, 2
+  index: -1
+J
+  rotate: false
+  xy: 1452, 86
+  size: 68, 129
+  orig: 72, 132
+  offset: 2, 2
+  index: -1
+Jeckpot
+  rotate: true
+  xy: 1771, 320
+  size: 543, 174
+  orig: 551, 182
+  offset: 4, 4
+  index: -1
+K
+  rotate: false
+  xy: 1363, 217
+  size: 93, 128
+  orig: 96, 132
+  offset: 1, 2
+  index: -1
+O
+  rotate: false
+  xy: 1552, 213
+  size: 91, 132
+  orig: 95, 135
+  offset: 2, 2
+  index: -1
+P
+  rotate: false
+  xy: 1363, 86
+  size: 87, 129
+  orig: 91, 132
+  offset: 2, 2
+  index: -1
+Particles
+  rotate: false
+  xy: 751, 56
+  size: 309, 296
+  orig: 312, 300
+  offset: 2, 3
+  index: -1
+PinkRays
+  rotate: true
+  xy: 1269, 347
+  size: 516, 500
+  orig: 526, 526
+  offset: 10, 12
+  index: -1
+T
+  rotate: false
+  xy: 1158, 2
+  size: 87, 128
+  orig: 91, 132
+  offset: 2, 2
+  index: -1
+VioletRays
+  rotate: true
+  xy: 751, 354
+  size: 509, 516
+  orig: 530, 529
+  offset: 8, 1
+  index: -1
+chipPink1
+  rotate: false
+  xy: 1639, 139
+  size: 45, 44
+  orig: 47, 46
+  offset: 1, 1
+  index: -1
+chipPink2
+  rotate: false
+  xy: 1639, 139
+  size: 45, 44
+  orig: 47, 46
+  offset: 1, 1
+  index: -1
+chipPink3
+  rotate: true
+  xy: 1522, 103
+  size: 46, 45
+  orig: 48, 47
+  offset: 1, 1
+  index: -1
+chipPink4
+  rotate: true
+  xy: 1522, 103
+  size: 46, 45
+  orig: 48, 47
+  offset: 1, 1
+  index: -1
+chipPink5
+  rotate: true
+  xy: 1522, 151
+  size: 60, 58
+  orig: 62, 60
+  offset: 1, 1
+  index: -1
+chipPink6
+  rotate: true
+  xy: 1458, 249
+  size: 96, 92
+  orig: 98, 94
+  offset: 1, 1
+  index: -1
+chipViolet
+  rotate: false
+  xy: 1165, 132
+  size: 99, 106
+  orig: 103, 108
+  offset: 2, 1
+  index: -1
+chipViolet1
+  rotate: true
+  xy: 1062, 133
+  size: 105, 101
+  orig: 107, 103
+  offset: 1, 1
+  index: -1
+chipYellow
+  rotate: false
+  xy: 1247, 48
+  size: 80, 82
+  orig: 82, 84
+  offset: 1, 1
+  index: -1
+chipYellow1
+  rotate: false
+  xy: 1569, 100
+  size: 41, 43
+  orig: 44, 45
+  offset: 1, 1
+  index: -1
+chipYellow2
+  rotate: true
+  xy: 1522, 58
+  size: 43, 40
+  orig: 45, 42
+  offset: 1, 1
+  index: -1
+chipYellow3
+  rotate: true
+  xy: 1645, 253
+  size: 65, 61
+  orig: 67, 63
+  offset: 1, 1
+  index: -1
+chipYellow4
+  rotate: false
+  xy: 1062, 240
+  size: 107, 112
+  orig: 110, 115
+  offset: 2, 2
+  index: -1
+chipYellow5
+  rotate: false
+  xy: 1171, 254
+  size: 96, 98
+  orig: 98, 100
+  offset: 1, 1
+  index: -1
+chipYellow6
+  rotate: false
+  xy: 1266, 136
+  size: 88, 75
+  orig: 90, 77
+  offset: 1, 1
+  index: -1
+chipYellow7
+  rotate: false
+  xy: 1582, 145
+  size: 55, 66
+  orig: 57, 68
+  offset: 1, 1
+  index: -1
+chipYellow8
+  rotate: true
+  xy: 1645, 185
+  size: 66, 57
+  orig: 68, 59
+  offset: 1, 1
+  index: -1
+shine
+  rotate: false
+  xy: 2, 116
+  size: 747, 747
+  orig: 804, 800
+  offset: 29, 24
+  index: -1

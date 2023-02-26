@@ -1,0 +1,12 @@
+.administration-user-actions {
+  @include smooth-resize(1360, max-width);
+  @include smooth-resize(500, min-height);
+  width: 100%;
+}
+
+.administration-user-actions__export {
+  @include smooth-resize(15, padding-top);
+  @include smooth-resize(15, padding-bottom);
+  display: flex;
+  justify-content: flex-end;
+}

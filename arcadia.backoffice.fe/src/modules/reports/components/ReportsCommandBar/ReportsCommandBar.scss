@@ -1,0 +1,18 @@
+.reports-command-bar {
+  @include smooth-resize-padding(10, 50, 10, 50);
+  border-bottom: 1px solid rgba($color-firm2, 0.6);
+  display: flex;
+  align-items: center;
+}
+
+.reports-command-bar__label {
+  @include smooth-resize(30, margin-right);
+}
+
+.reports-command-bar__select {
+  @include smooth-resize(180, width);
+}
+
+.reports-command-bar__btn {
+  @include smooth-resize(30, margin-left);
+}

@@ -1,0 +1,28 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-f",
+        "arcadia.operator.factory/Dockerfile",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.operator.factory.dev:$BUILD_ID",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.operator.factory.dev:latest",
+        "./arcadia.operator.factory",
+      ]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/arcadia.operator.factory.dev"]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud compute ssh --zone "${_ZONE}" "${_INSTANCE}" --command "
+        cd /home/arcadia
+        docker stop arcadia_operator_factory
+        docker-compose pull operator_factory
+        docker-compose create operator_factory
+        docker-compose start operator_factory
+        "
+        wait

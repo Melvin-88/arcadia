@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: backoffice-fe
+  name: backoffice-fe-service
+spec:
+  ports:
+    - port: 8077
+      targetPort: 80
+  selector:
+    app: backoffice-fe
+  type: NodePort

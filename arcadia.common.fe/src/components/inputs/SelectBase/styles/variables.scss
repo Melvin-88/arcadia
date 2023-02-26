@@ -1,0 +1,30 @@
+$animation-time: 300ms !default;
+
+$select-background-color: $color-firm17 !default;
+$select-border-radius: 6px !default;
+$select-border-color: $color-firm2 !default;
+$select-hover-border-color: $color-firm5 !default;
+
+$select-color: $color-firm1 !default;
+$select-single-value-color: $color-firm1 !default;
+$select-item-hover-background: rgba($color-firm2, 0.3) !default;
+$select-item-selected-background: $color-firm2 !default;
+
+$select-placeholder-color: rgba($color-firm1, 0.5) !default;
+
+$select-multi-value-remove-hover-background-color: rgba($color-firm4, 0.3) !default;
+$select-multi-value-remove-hover-color: $color-firm1 !default;
+
+$select-multi-value-remove-active-background-color: rgba($color-firm4, 0.2) !default;
+$select-multi-value-remove-active-color: $color-firm1 !default;
+
+$select-dropdown-indicator-color: $color-firm4 !default;
+$select-dropdown-arrow-border-color: $color-firm15 transparent transparent transparent !default;
+$select-dropdown-arrow-hover-border-color: $color-firm1 transparent transparent transparent !default;
+$select-dropdown-arrow-active-border-color: $color-firm2 transparent transparent transparent !default;
+
+$select-error-message-color: $color-firm13 !default;
+
+$select-label-color: $color-firm1 !default;
+
+$select-indicator-hover-color: $color-firm1 !default;

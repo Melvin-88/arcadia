@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: game-core-api
+  labels:
+    app: game-core-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: game-core-api
+  template:
+    metadata:
+      labels:
+        app: game-core-api
+    spec:
+      volumes:
+        - name: google-cloud-key
+          secret:
+            secretName: sm-key
+      containers:
+        - name: game-core-api
+          image: gcr.io/studio-staging-294712/arcadia.game.core.api.stage:latest
+          volumeMounts:
+            - name: google-cloud-key
+              mountPath: /var/secrets/google
+          imagePullPolicy: Always
+          env:
+            - name: NODE_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: NODE_ENV
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: GC_API_PORT
+            - name: USE_GCP_SM
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: USE_GCP_SM
+            - name: API_VERSION
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: GC_API_VERSION
+            - name: GCP_PROJECT
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: GCP_PROJECT
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /var/secrets/google/key.json

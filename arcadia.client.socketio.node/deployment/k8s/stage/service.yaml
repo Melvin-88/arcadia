@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: client-socketio-node
+  name: client-socketio-node-service
+spec:
+  externalTrafficPolicy: Local
+  ports:
+    - port: 3001
+      targetPort: 3001
+  selector:
+    app: client-socketio-node
+  type: NodePort

@@ -1,0 +1,17 @@
+export enum HlsPlayerStatusEnum {
+    abort = 'abort',
+    canplay = 'canplay',
+    canplaythrough = 'canplaythrough',
+    emptied = 'emptied',
+    ended = 'ended',
+    error = 'error',
+    firstplay = 'firstplay',
+    loadstart = 'loadstart',
+    pause = 'pause',
+    play = 'play',
+    playing = 'playing',
+    progress = 'progress',
+    stalled = 'stalled',
+    suspend = 'suspend',
+    waiting = 'waiting',
+}

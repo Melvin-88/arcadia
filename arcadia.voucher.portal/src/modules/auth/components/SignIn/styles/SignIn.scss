@@ -1,0 +1,15 @@
+.sign-in__icon {
+  @include smooth-resize(200, width);
+  fill: $color-firm2;
+}
+
+.sign-in__buttons {
+  @include smooth-resize(15, margin-top);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-in__field {
+  @include smooth-resize(15, margin-top);
+}

@@ -1,0 +1,33 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-f",
+        "arcadia.operator.factory/Dockerfile",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.operator.factory.stage:$BUILD_ID",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.operator.factory.stage:latest",
+        "./arcadia.operator.factory",
+      ]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/arcadia.operator.factory.stage"]
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['apply', '-f', 'arcadia.operator.factory/deployment/k8s/stage', '--namespace=${_ENV}']
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER_NAME}'
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: [
+      'set',
+      'image',
+      'deployment',
+      'operator-factory',
+      'operator-factory=gcr.io/$PROJECT_ID/arcadia.operator.factory.stage:$BUILD_ID',
+      '--namespace=${_ENV}'
+    ]
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER_NAME}'
+

@@ -1,0 +1,114 @@
+@import './variables.scss';
+
+.btn {
+  @include smooth-resize($button-default-minimal-width, min-width);
+  @include smooth-resize-padding(6, 15, 6, 15);
+  @include font-size2;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  line-height: 1.11;
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid $button-default-border-color;
+  border-radius: $button-default-border-radius;
+  outline: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform $animation-time, box-shadow $animation-time, background-color $animation-time, color $animation-time;
+
+  &:hover,
+  &:focus {
+    transform: translateY(-3px);
+    box-shadow: $button-default-hover-box-shadow;
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: $button-default-active-box-shadow;
+  }
+}
+
+.btn--primary-filled {
+  background-color: $button-primary-background-color;
+  border: 1px solid $button-primary-border-color;
+  color: $button-primary-color;
+}
+
+.btn--secondary-filled {
+  background-color: $button-secondary-background-color;
+  border: 1px solid $button-secondary-background-color;
+  color: $button-filled-color;
+}
+
+.btn--tertiary-filled {
+  background-color: $button-tertiary-background-color;
+  border: 1px solid $button-tertiary-background-color;
+  color: $button-filled-color;
+}
+
+.btn--quaternary-filled {
+  background-color: $button-quaternary-background-color;
+  border: 1px solid $button-quaternary-background-color;
+  color: $button-filled-color;
+}
+
+.btn--quinary-filled {
+  background-color: $button-quinary-background-color;
+  border: 1px solid $button-quinary-background-color;
+  color: $button-quinary-color;
+}
+
+.btn--primary-outline {
+  color: $button-primary-color;
+  border: 1px solid $button-primary-border-color;
+  background: transparent;
+}
+
+.btn--secondary-outline {
+  color: $button-secondary-color;
+  border: 1px solid $button-secondary-border-color;
+  background: transparent;
+}
+
+.btn--tertiary-outline {
+  color: $button-tertiary-color;
+  border: 1px solid $button-tertiary-border-color;
+  background: transparent;
+}
+
+.btn--quaternary-outline {
+  color: $button-quaternary-color;
+  border: 1px solid $button-quaternary-border-color;
+  background: transparent;
+}
+
+.btn--quinary-outline {
+  color: $button-quinary-color-outline;
+  border: 1px solid $button-quinary-border-color;
+  background: transparent;
+}
+
+.btn--full-width {
+  display: block;
+  width: 100%;
+}
+
+.btn--disabled {
+  pointer-events: none;
+  opacity: $button-default-disabled-opacity;
+}
+
+.btn--is-loading {
+  color: transparent;
+}
+
+.btn__spinner {
+  @include smooth-resize(22, width);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

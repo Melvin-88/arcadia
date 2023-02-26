@@ -1,0 +1,507 @@
+version: '3'
+
+services:
+  redis:
+    image: redis:5.0-alpine
+    container_name: arcadia_redis
+    restart: always
+    ports:
+      - '6379:6379'
+      - '6380:6379'
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'redis'
+    networks:
+      - arcadia
+
+  mysql:
+    image: mysql:8.0.21
+    command: --default-authentication-plugin=mysql_native_password
+    container_name: arcadia_mysql
+    hostname: mysql
+    volumes:
+      - dbdata:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=wWUMQUwcXd8p/M(f
+      - MYSQL_DATABASE=game-api
+      - MYSQL_USER=game-api-user
+      - MYSQL_PASSWORD=W7vfrgLWE;3&]v~[
+    ports:
+      - '3306:3306'
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'mysql'
+    networks:
+      ingress:
+      arcadia:
+        aliases:
+          - mysql
+
+  mongodb:
+    container_name: arcadia_mongo_db
+    image: mongo:4
+    hostname: mongo
+    restart: always
+    ports:
+      - '27017:27017'
+    environment:
+      - MONGO_SERVER_PORT=27017
+      - MONGO_INITDB_ROOT_USERNAME=monitoring
+      - MONGO_INITDB_ROOT_PASSWORD=W7vfrgLWE;3&]v~[
+      - MONGO_INITDB_DATABASE=action-logs
+    volumes:
+      - mongo-data:/var/lib/mongo/data
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'mongo'
+    networks:
+      ingress:
+      arcadia:
+        aliases:
+          - mongo
+
+  rabbitmq_1:
+    image: bitnami/rabbitmq:3.7.17
+    container_name: arcadia_rabbitmq_1
+    restart: always
+    hostname: rabbitmq-1
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    environment:
+      - RABBITMQ_NODE_NAME=rabbit@rabbitmq-1
+      - RABBITMQ_USERNAME=arcadia_admin
+      - RABBITMQ_PASSWORD=AB2WpJdqZ9RRrWH
+    volumes:
+      - rabbitmq_data:/bitnami
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'rabbitmq_1'
+    networks:
+      ingress:
+      arcadia:
+        aliases:
+          - rabbitmq-1
+
+  arcadia-client-fe:
+    image: gcr.io/studio-integration-270607/arcadia.client.fe.dev:latest
+    container_name: arcadia_client_fe
+    restart: always
+    ports:
+      - 8077:80
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'arcadia-client-fe'
+    networks:
+      - arcadia
+      - ingress
+
+  arcadia-backoffice-fe:
+    image: gcr.io/studio-integration-270607/arcadia.backoffice.fe.dev:latest
+    container_name: arcadia_backoffice_fe
+    restart: always
+    ports:
+      - 8079:80
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'arcadia-backoffice-fe'
+    networks:
+      - arcadia
+      - ingress
+
+  arcadia-voucher-portal:
+    image: gcr.io/studio-integration-270607/arcadia.voucher.portal.dev:latest
+    container_name: arcadia_voucher_portal
+    restart: always
+    ports:
+      - 8080:80
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'arcadia-voucher-portal'
+    networks:
+      - arcadia
+      - ingress
+
+  client_api_1:
+    image: gcr.io/studio-integration-270607/arcadia.client.api.dev:latest
+    container_name: arcadia_client_api_1
+    restart: always
+    hostname: client-api-1
+    volumes:
+      - /mnt/arcadia/api_keys:/app/api_keys/
+    environment:
+      - NODE_ENV=develop
+      - PORT=3000
+      - GOOGLE_APPLICATION_CREDENTIALS=./api_keys/studio-integration-270607-50115ca46662.json
+      - USE_GCP_SM=true
+      - GCP_PROJECT=projects/1076530206412
+      - SWAGGER_ENDPOINT=/docs
+    ports:
+      - '3003:3000'
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'client_api'
+    networks:
+      arcadia:
+        aliases:
+          - client-api-1
+
+  client_api_2:
+    image: gcr.io/studio-integration-270607/arcadia.client.api.dev:latest
+    container_name: arcadia_client_api_2
+    restart: always
+    hostname: client-api-2
+    volumes:
+      - /mnt/arcadia/api_keys:/app/api_keys/
+    environment:
+      - NODE_ENV=develop
+      - PORT=3000
+      - API_VERSION=1
+      - GOOGLE_APPLICATION_CREDENTIALS=./api_keys/studio-integration-270607-50115ca46662.json
+      - USE_GCP_SM=true
+      - GCP_PROJECT=projects/1076530206412
+      - SWAGGER_ENDPOINT=/docs
+    ports:
+      - '3002:3000'
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'client_api'
+    networks:
+      arcadia:
+        aliases:
+          - client-api-2
+
+  game_core_api_1:
+    image: gcr.io/studio-integration-270607/arcadia.game.core.api.dev:latest
+    container_name: arcadia_game_core_api_1
+    restart: always
+    hostname: game-core-api-1
+    volumes:
+      - /mnt/arcadia/api_keys:/app/api_keys/
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - API_VERSION=1
+      - GOOGLE_APPLICATION_CREDENTIALS=../api_keys/studio-integration-270607-50115ca46662.json
+      - USE_GCP_SM=true
+      - GCP_PROJECT=projects/1076530206412
+    depends_on:
+      - mysql
+      - redis
+      - rabbitmq_1
+    ports:
+      - '3000:3000'
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'game_core_api'
+    networks:
+      arcadia:
+        aliases:
+          - game-core-api-1
+
+  game_core_worker_1:
+    image: gcr.io/studio-integration-270607/arcadia.game.core.worker.dev:latest
+    container_name: arcadia_game_core_worker_1
+    restart: always
+    hostname: game-core-worker-1
+    volumes:
+      - /mnt/arcadia/api_keys:/app/api_keys/
+    environment:
+      - NODE_ENV=develop
+      - PORT=3000
+      - API_VERSION=1
+      - GOOGLE_APPLICATION_CREDENTIALS=../api_keys/studio-integration-270607-50115ca46662.json
+      - USE_GCP_SM=true
+      - GCP_PROJECT=projects/1076530206412
+    depends_on:
+      - mysql
+      - redis
+      - rabbitmq_1
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'game_core_worker'
+    networks:
+      arcadia:
+        aliases:
+          - game-core-worker-1
+
+  monitoring_api:
+    image: gcr.io/studio-integration-270607/arcadia.monitoring.api.dev:latest
+    container_name: arcadia_monitoring_api
+    restart: always
+    hostname: monitoring-api
+    volumes:
+      - /mnt/arcadia/api_keys:/app/api_keys/
+    environment:
+      - NODE_ENV=develop
+      - PORT=3000
+      - API_VERSION=1
+      - GOOGLE_APPLICATION_CREDENTIALS=../api_keys/studio-integration-270607-50115ca46662.json
+      - USE_GCP_SM=true
+      - GCP_PROJECT=projects/1076530206412
+    ports:
+      - 3005:3000
+    depends_on:
+      - mysql
+      - redis
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'monitoring-api'
+    networks:
+      arcadia:
+        aliases:
+          - monitoring-api
+
+  monitoring_worker:
+    image: gcr.io/studio-integration-270607/arcadia.monitoring.worker.dev:latest
+    container_name: arcadia_monitoring_worker
+    restart: always
+    hostname: monitoring-worker
+    volumes:
+      - /mnt/arcadia/api_keys:/app/api_keys/
+    environment:
+      - NODE_ENV=develop
+      - PORT=3000
+      - API_VERSION=1
+      - GOOGLE_APPLICATION_CREDENTIALS=../api_keys/studio-integration-270607-50115ca46662.json
+      - USE_GCP_SM=true
+      - GCP_PROJECT=projects/1076530206412
+    depends_on:
+      - mysql
+      - redis
+      - mongodb
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'monitoring-worker'
+    networks:
+      arcadia:
+        aliases:
+          - monitoring-worker
+
+  backoffice_api:
+    image: gcr.io/studio-integration-270607/arcadia.backoffice.api.dev:latest
+    container_name: arcadia_backoffice_api
+    restart: always
+    hostname: arcadia_backoffice_api
+    volumes:
+      - /mnt/arcadia/api_keys:/app/api_keys/
+    environment:
+      - NODE_ENV=develop
+      - PORT=4000
+      - API_VERSION=1
+      - GOOGLE_APPLICATION_CREDENTIALS=../api_keys/studio-integration-270607-50115ca46662.json
+      - USE_GCP_SM=true
+      - GCP_PROJECT=projects/1076530206412
+    depends_on:
+      - mysql
+    ports:
+      - '4000:4000'
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'backoffice_api'
+    networks:
+      - arcadia
+      - ingress
+
+  chip_distributor:
+    image: gcr.io/studio-integration-270607/arcadia.chip.distributor.dev:latest
+    container_name: arcadia.chip.distributor
+    restart: always
+    hostname: game-chip-destributor
+    volumes:
+      - chips:/storage
+      - /mnt/arcadia/api_keys:/app/api_keys/
+    environment:
+      - NODE_ENV=develop
+      - PORT=3000
+      - API_VERSION=1
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/api_keys/studio-integration-270607-50115ca46662.json
+      - USE_GCP_SM=true
+      - GCP_PROJECT=projects/1076530206412
+      - ROBOT_DEMO_CHIP_PATH=/storage
+    depends_on:
+      - mysql
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'chip-destributor'
+    networks:
+      arcadia:
+        aliases:
+          - game-chip-destributor
+
+  operator_factory:
+    image: gcr.io/studio-integration-270607/arcadia.operator.factory.dev:latest
+    container_name: arcadia_operator_factory
+    restart: always
+    hostname: arcadia-operator-factory
+    volumes:
+      - /mnt/arcadia/api_keys:/app/api_keys/
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - API_VERSION=1
+      - GOOGLE_APPLICATION_CREDENTIALS=./api_keys/studio-integration-270607-50115ca46662.json
+      - USE_GCP_SM=true
+      - GCP_PROJECT=projects/1076530206412
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'operator_factory'
+    networks:
+      arcadia:
+        aliases:
+          - arcadia-operator-factory
+
+  client_socketio_node_1:
+    image: gcr.io/studio-integration-270607/arcadia.client.socketio.node.dev:latest
+    container_name: arcadia_client_socketio_node_1
+    restart: always
+    hostname: client-socketio-node-1
+    volumes:
+      - /mnt/arcadia/api_keys:/app/api_keys/
+    environment:
+      - NODE_ENV=develop
+      - GOOGLE_APPLICATION_CREDENTIALS=./api_keys/studio-integration-270607-50115ca46662.json
+      - USE_GCP_SM=true
+      - GCP_PROJECT=projects/1076530206412
+    ports:
+      - '8074:3001'
+    depends_on:
+      - redis
+      - rabbitmq_1
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'client_socketio_node'
+    networks:
+      arcadia:
+        aliases:
+          - client-socketio-node-1
+
+  client_socketio_node_2:
+    image: gcr.io/studio-integration-270607/arcadia.client.socketio.node.dev:latest
+    container_name: arcadia_client_socketio_node_2
+    restart: always
+    hostname: client-socketio-node-2
+    volumes:
+      - /mnt/arcadia/api_keys:/app/api_keys/
+    environment:
+      - NODE_ENV=develop
+      - GOOGLE_APPLICATION_CREDENTIALS=./api_keys/studio-integration-270607-50115ca46662.json
+      - USE_GCP_SM=true
+      - GCP_PROJECT=projects/1076530206412
+    depends_on:
+      - redis
+      - rabbitmq_1
+    ports:
+      - '8075:3001'
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'client_socketio_node'
+    networks:
+      arcadia:
+        aliases:
+          - client-socketio-node-2
+
+  client_socketio_node_3:
+    image: gcr.io/studio-integration-270607/arcadia.client.socketio.node.dev:latest
+    container_name: arcadia_client_socketio_node_3
+    restart: always
+    hostname: client-socketio-node-3
+    volumes:
+      - /mnt/arcadia/api_keys:/app/api_keys/
+    environment:
+      - NODE_ENV=develop
+      - GOOGLE_APPLICATION_CREDENTIALS=./api_keys/studio-integration-270607-50115ca46662.json
+      - USE_GCP_SM=true
+      - GCP_PROJECT=projects/1076530206412
+    depends_on:
+      - redis
+      - rabbitmq_1
+    ports:
+      - '8073:3001'
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'client_socketio_node'
+    networks:
+      arcadia:
+        aliases:
+          - client-socketio-node-3
+
+  robot_emulator_1:
+    image: gcr.io/studio-integration-270607/arcadia.robot.emulator.dev:latest
+    container_name: arcadia_robot_emulator_1
+    restart: always
+    volumes:
+      - chips:/storage
+    environment:
+      - SERIAL=demo_serial_1
+      - ROBOT_DEMO_MODE=true
+      - GAME_CORE_API_HOST=http://game-core-api-1:3000/api/v1
+      - CHIP_DISTRIBUTOR_HOST=http://game-chip-destributor:3000
+      - CHIP_STORAGE_PATH=/storage
+    depends_on:
+      - redis
+      - rabbitmq_1
+      - chip_distributor
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'robot-emu'
+    networks:
+      - arcadia
+
+  robot_emulator_2:
+    image: gcr.io/studio-integration-270607/arcadia.robot.emulator.dev:latest
+    container_name: arcadia_robot_emulator_2
+    restart: always
+    volumes:
+      - chips:/storage
+    environment:
+      - SERIAL=demo_serial_2
+      - ROBOT_DEMO_MODE=true
+      - GAME_CORE_API_HOST=http://game-core-api-1:3000/api/v1
+      - CHIP_DISTRIBUTOR_HOST=http://game-chip-destributor:3000
+      - CHIP_STORAGE_PATH=/storage
+    depends_on:
+      - redis
+      - rabbitmq_1
+      - chip_distributor
+    logging:
+      driver: gcplogs
+      options:
+        labels: 'robot-emu'
+    networks:
+      - arcadia
+
+networks:
+  arcadia:
+  ingress:
+
+volumes:
+  rabbitmq_data:
+    driver: local
+  dbdata:
+    driver: local
+  mongo-data:
+    driver: local
+  chips:
+    driver: local

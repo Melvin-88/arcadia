@@ -1,0 +1,6 @@
+@mixin watch-cameras-sections($width, $height, $templateColumns, $templateRows ) {
+  @include smooth-resize($width, width);
+  @include smooth-resize($height, height);
+  grid-template-columns: $templateColumns;
+  grid-template-rows: $templateRows;
+}

@@ -1,0 +1,26 @@
+.camera-dialog-get-recording {
+  @include smooth-resize(900, max-width);
+  width: 100%;
+}
+
+.camera-dialog-get-recording__fields-groups {
+  @include smooth-resize(30, grid-column-gap);
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: flex-start;
+}
+
+.camera-dialog-get-recording__fields-container {
+  @include smooth-resize(10, grid-column-gap);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: flex-start;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.camera-dialog-get-recording__field-label {
+  @include smooth-resize(7px, margin-top);
+}

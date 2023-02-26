@@ -1,0 +1,20 @@
+.machine-availability {
+  background: rgba($color-firm6, 0.5);
+}
+
+.machine-availability__spinner {
+  @include smooth-resize(15, padding);
+  @include smooth-resize(75, width);
+  margin: auto;
+}
+
+.machine-availability__icon {
+  @include smooth-resize(15, height);
+  transform: rotate(-90deg);
+  fill: $color-firm18;
+}
+
+.machine-availability__icon--negative {
+  fill: $color-firm9;
+  transform: rotate(90deg);
+}

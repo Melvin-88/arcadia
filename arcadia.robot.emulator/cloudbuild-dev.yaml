@@ -1,0 +1,31 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-f",
+        "arcadia.robot.emulator/Dockerfile",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.robot.emulator.dev:$BUILD_ID",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.robot.emulator.dev:latest",
+        "./arcadia.robot.emulator",
+      ]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/arcadia.robot.emulator.dev"]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud compute ssh --zone "${_ZONE}" "${_INSTANCE}" --command "
+        cd /home/arcadia
+        docker stop arcadia_robot_emulator_1
+        docker stop arcadia_robot_emulator_2
+        docker-compose pull robot_emulator_1
+        docker-compose create robot_emulator_1
+        docker-compose create robot_emulator_2
+        docker-compose start robot_emulator_1
+        docker-compose start robot_emulator_2
+        "
+        wait

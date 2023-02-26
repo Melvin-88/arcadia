@@ -1,0 +1,281 @@
+@import './variables.scss';
+
+.select {
+  width: 100%;
+}
+
+.select__label {
+  @include smooth-resize(5, margin-bottom);
+  @include font-size2;
+  display: block;
+  font-weight: 500;
+  color: $select-label-color;
+}
+
+.select__menu {
+  @include arcadia-custom-scrollbar();
+  @include smooth-resize-margin(3, 0, 3, 0);
+  @include smooth-resize(8, padding);
+  @include smooth-resize(250, max-height);
+  @include smooth-resize(150, min-width);
+  z-index: 3;
+  width: auto !important;/* stylelint-disable-line */
+  overflow: auto;
+  background: $select-background-color !important;/* stylelint-disable-line */
+  border: 1px solid $select-border-color;
+}
+
+.select__option {
+  @include smooth-resize-padding(5, 5, 5, 5);
+  @include font-size2;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
+  &:hover {
+    color: $select-color;
+    background: $select-item-hover-background;
+  }
+}
+
+.select__option-checkbox {
+  @include smooth-resize(5, margin-right);
+  width: auto;
+}
+
+.select__option--is-selected {
+  color: $select-color;
+  background: $select-item-selected-background;
+}
+
+.select__option--multi {
+  background-color: transparent;
+}
+
+.select__option--is-focused {
+  color: $select-color;
+  background: $select-background-color;
+}
+
+.select__body {
+  .select__control {
+    @include smooth-resize-padding(1, 6, 1, 6);
+    @include smooth-resize(32, min-height);
+    border-radius: $select-border-radius;
+    border: 1px solid $select-border-color;
+    background: $select-background-color;
+
+    &:hover {
+      border-color: $select-hover-border-color;
+    }
+  }
+
+  .select__value-container {
+    @include smooth-resize-padding(1, 0, 1, 2);
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+
+    /* TODO: any should be reviewed after first priority tasks */
+    /* stylelint-disable */
+    &>div{
+      display: inline-block;
+    }
+    /* stylelint-enable */
+  }
+
+  .select__input {
+    display: inline-block;
+    caret-color: $color-firm1;
+    color: $color-firm1;
+  }
+
+  .select__placeholder {
+    @include smooth-resize-margin(0, 0, 0, 4);
+    @include font-size2;
+    color: $select-placeholder-color;
+  }
+
+  .select__menu-list {
+    @include arcadia-custom-scrollbar(0.4em);
+  }
+
+  .select__multi-value {
+    color: $color-firm1;
+
+    &:first-child {
+      margin-right: 0;
+
+      &:before {
+        content: '';
+      }
+    }
+
+    &:before {
+      @include smooth-resize(3, margin-right);
+      content: ',';
+    }
+  }
+
+  .select__control--menu-is-open,
+  .select__control--is-focused {
+    box-shadow: none;
+  }
+  /* stylelint-disable */
+  .select__control--is-focused {
+    .select__indicator {
+      &:before {
+        display: none;
+      }
+    }
+  }
+  /* stylelint-enable */
+  .select__single-value {
+    @include font-size2;
+    text-overflow: clip;
+    color: $select-single-value-color;
+
+    &:before {
+      @include smooth-resize(-8, margin-left);
+      @include smooth-resize(8, width);
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 125%;
+      bottom: 0;
+      background: linear-gradient(280deg, $select-background-color 10%, rgba($select-background-color, 0) 100%);
+      z-index: 1;
+    }
+  }
+
+  /* stylelint-disable */
+  .select__indicator {
+    position: relative;
+    @include smooth-resize(5, font-size);
+    @include smooth-resize-padding(8, 8, 8, 8);
+
+    &:before {
+      @include smooth-resize(-8, margin-left);
+      @include smooth-resize(8, width);
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0px;
+      bottom: 0;
+      background: linear-gradient(280deg,  $select-background-color 10%, rgba( $select-background-color, 0) 100%);
+      z-index: 1;
+    }
+
+    svg {
+      @include smooth-resize(18, width);
+      height: auto;
+      display: block;
+      fill: $color-firm2;
+    }
+
+    &:hover {
+      svg {
+        fill: $color-firm1;
+      }
+    }
+  }
+  /* stylelint-enable */
+  .select__indicator-separator {
+    display: none;
+  }
+
+  .select__dropdown-indicator {
+    color: $select-dropdown-indicator-color;
+  }
+
+  .select__multi-value__remove {
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background-color: $select-multi-value-remove-hover-background-color;
+      color: $select-multi-value-remove-hover-color;
+    }
+
+    &:active {
+      background-color: $select-multi-value-remove-active-background-color;
+      color: $select-multi-value-remove-active-color;
+    }
+  }
+
+  .select__clear-indicator {
+    @include smooth-resize(4, padding);
+    cursor: pointer;
+
+    &:hover {
+      color: $select-indicator-hover-color;
+    }
+
+    & ~ .select__dropdown-arrow { /* stylelint-disable-line */
+      display: none;
+    }
+  }
+}
+
+.select__dropdown-arrow {
+  @include smooth-resize-margin(0, 8, 0, 8);
+  @include smooth-resize(6, border-top-width);
+  @include smooth-resize(6, border-right-width);
+  @include smooth-resize(6, border-left-width);
+  border-bottom-width: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: $select-dropdown-arrow-border-color;
+  cursor: pointer;
+  transition: border-color $animation-time;
+
+  &:hover,
+  &:focus {
+    border-color: $select-dropdown-arrow-hover-border-color;
+  }
+
+  &:active {
+    border-color: $select-dropdown-arrow-active-border-color;
+  }
+}
+
+.select--helper-message,
+.select--error {
+  .select__helper-message {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.select--error {
+  .select__control {
+    border: 1px solid $select-error-message-color;
+
+    &:hover,
+    &:focus {
+      border-color: $select-hover-border-color;
+    }
+
+    &:active {
+      border-color: rgba($select-error-message-color, 0.6);
+    }
+  }
+
+  .select__helper-message {
+    color: $select-error-message-color;
+  }
+}
+
+.select__helper-message {
+  @include smooth-resize(5, margin-top);
+  @include font-size5;
+  min-height: 1.2em;
+  line-height: 1.2;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility $animation-time, opacity $animation-time;
+}

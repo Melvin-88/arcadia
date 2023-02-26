@@ -1,0 +1,71 @@
+@import './mixins.scss';
+
+.watch-cameras-dialog__sections,
+.watch-cameras-dialog__spinner {
+  @include smooth-resize(850, width);
+  @include smooth-resize(485, height);
+}
+
+.watch-cameras-dialog__spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.watch-cameras-dialog__sections {
+  @include smooth-resize(10, gap);
+  @include smooth-resize(10, padding-right);
+  @include smooth-resize(10, padding-left);
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.watch-cameras-dialog__sections-no-streams {
+  @include font-size1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-firm14;
+  color: $color-firm1;
+}
+
+.watch-cameras-dialog__section {
+  display: flex;
+  border: 1px solid $color-firm12;
+  overflow: auto;
+}
+
+.watch-cameras-dialog__sections--count-0 {
+  @include watch-cameras-sections(850, 485, 1fr, 1fr);
+}
+
+.watch-cameras-dialog__sections--count-1 {
+  @include watch-cameras-sections(850, 485, 1fr, 1fr);
+}
+
+.watch-cameras-dialog__sections--count-2 {
+  @include watch-cameras-sections(1190, 345, 1fr 1fr, 1fr 0fr);
+}
+
+.watch-cameras-dialog__sections--count-3,
+.watch-cameras-dialog__sections--count-4 {
+  @include watch-cameras-sections(1190, 680, 1fr 1fr, 1fr 1fr);
+}
+
+.watch-cameras-dialog__sections--count-5,
+.watch-cameras-dialog__sections--count-6 {
+  @include watch-cameras-sections(1500, 580, 1fr 1fr 1fr, 1fr 1fr);
+}
+
+.watch-cameras-dialog__sections--count-7,
+.watch-cameras-dialog__sections--count-8,
+.watch-cameras-dialog__sections--count-9{
+  @include watch-cameras-sections(1250, 680, 1fr 1fr 1fr, 1fr 1fr 1fr);
+}
+
+.watch-cameras-dialog__sections--count-10,
+.watch-cameras-dialog__sections--count-11,
+.watch-cameras-dialog__sections--count-12 {
+  @include watch-cameras-sections(1500, 690, 1fr 1fr 1fr 1fr, 1fr 1fr 1fr);
+}

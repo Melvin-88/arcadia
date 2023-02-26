@@ -1,0 +1,60 @@
+.machine--details__description {
+  @include smooth-resize(20, margin-bottom);
+  @include smooth-resize(10, grid-column-gap);
+  @include smooth-resize(10, grid-row-gap);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr;
+}
+
+.machine-details__info-bar {
+  display: table;
+}
+
+.machine-details__info-row {
+  display: table-row;
+}
+
+.machine-details__term {
+  display: table-cell;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 1px;
+  color: rgba($color-firm1, 0.84);
+}
+
+.machine-details__value {
+  @include smooth-resize(30, padding-left);
+  @include smooth-resize(15, padding-bottom);
+  display: table-cell;
+  vertical-align: top;
+  font-weight: 600;
+  color: $color-firm1;
+  white-space: normal;
+}
+
+.machine-details__controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.machine-details__controls-machine {
+  display: flex;
+}
+
+.machine-details__btn-splitter {
+  @include smooth-resize(30, margin-right);
+  border-left: 1px solid $color-firm2;
+}
+
+.machine-details__btn {
+  @include smooth-resize(30, margin-right);
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.machine-details__btn-history {
+  @include smooth-resize(30, margin-left);
+}

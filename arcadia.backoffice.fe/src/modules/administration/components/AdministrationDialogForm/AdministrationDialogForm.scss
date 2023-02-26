@@ -1,0 +1,76 @@
+.administration-dialog-form {
+  @include smooth-resize(880, max-width);
+  width: 100%;
+}
+
+.administration-dialog-form__fields-groups {
+  @include smooth-resize(54, grid-column-gap);
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.administration-dialog-form__field-label {
+  @include smooth-resize(135, width);
+  @include smooth-resize(7px, margin-top);
+}
+
+.administration-dialog-form__field {
+  width: 100%;
+}
+
+.administration-dialog-form__fields-container {
+  @include smooth-resize(10, grid-column-gap);
+  @include smooth-resize(15, margin-top);
+  display: grid;
+  grid-template-columns: minmax(auto, max-content) minmax(auto, 227px);
+  align-items: flex-start;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.administration-dialog-form__permissions-group {
+  @include smooth-resize-padding(45, 0, 19, 0);
+}
+
+.administration-dialog-form__permissions-spinner {
+  margin: 0 auto;
+}
+
+.administration-dialog-form__permissions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.administration-dialog-form__permissions-title {
+  @include smooth-resize-margin(0, 48, 15, 0);
+}
+
+.administration-dialog-form__permissions-controls {
+  @include smooth-resize(15, grid-row-gap);
+  @include smooth-resize(10, grid-column-gap);
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.administration-dialog-form__password-field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.administration-dialog-form__field--checkbox {
+  align-self: center;
+}
+
+.administration-dialog-form__password-field-label {
+  @include smooth-resize-margin(0, 49, 0, 0);
+  @include font-size2;
+}
+
+.administration-dialog-form__password-field-container {
+  @include smooth-resize(375, max-width);
+  margin-left: auto;
+}

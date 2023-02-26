@@ -1,0 +1,22 @@
+git clone https://github.com/nanit/kubernetes-rabbitmq-cluster.git
+
+gcr.io/studio-staging-294712
+
+nanit
+
+export NAMESPACE=staging && \
+export DOCKER_REPOSITORY=nanit && \
+export POD_CPU_REQUEST=300m && \
+export POD_MEMORY_REQUEST=5Gi && \
+export RABBITMQ_REPLICAS=3 && \
+export RABBITMQ_DEFAULT_USER=admin && \
+export RABBITMQ_DEFAULT_PASS=admin && \
+export RABBITMQ_ERLANG_COOKIE=SecRetPwd && \
+export RABBITMQ_EXPOSE_MANAGEMENT=TRUE && \
+export RABBITMQ_MANAGEMENT_SERVICE_TYPE=LoadBalancer && \
+export RABBITMQ_HA_POLICY='{\"ha-mode\":\"all\"}' && \
+export RABBITMQ_LOG_LEVEL=info && \
+export RABBITMQ_ADDITIONAL_YAML="" && \
+export SUDO="" && \
+export RBAC="FALSE" && \
+make deploy

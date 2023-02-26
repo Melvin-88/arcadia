@@ -1,0 +1,39 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-f",
+        "arcadia.voucher.portal/Dockerfile",
+        "--build-arg",
+        "API_HOST=${_API_HOST}",
+        "--build-arg",
+        "BASE_URL=${_BASE_URL}",
+        "--build-arg",
+        "NODE_ENV=${_NODE_ENV}",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.voucher.portal.dev:$BUILD_ID",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.voucher.portal.dev:latest",
+        ".",
+      ]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/arcadia.voucher.portal.dev"]
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['apply', '-f', 'arcadia.voucher.portal/deployment/k8s/stage', '--namespace=${_ENV}']
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER_NAME}'
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: [
+      'set',
+      'image',
+      'deployment',
+      'voucher-portal',
+      'voucher-portal=gcr.io/$PROJECT_ID/arcadia.voucher.portal.dev:$BUILD_ID',
+      '--namespace=${_ENV}'
+    ]
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER_NAME}'
+timeout: 900s

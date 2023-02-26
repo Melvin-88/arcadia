@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-fe
+  labels:
+    app: client-fe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client-fe
+  template:
+    metadata:
+      labels:
+        app: client-fe
+    spec:
+      containers:
+        - name: client-fe
+          image: gcr.io/studio-staging-294712/arcadia.client.fe.stage:latest
+          imagePullPolicy: Always

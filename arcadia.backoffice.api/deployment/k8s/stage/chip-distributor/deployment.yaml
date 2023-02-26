@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chip-distributor
+  labels:
+    app: chip-distributor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chip-distributor
+  template:
+    metadata:
+      labels:
+        app: chip-distributor
+    spec:
+      volumes:
+        - name: google-cloud-key
+          secret:
+            secretName: sm-key
+        - name: emu-storage
+          persistentVolumeClaim:
+            claimName: models-robot-emu-claim
+            readOnly: false
+      containers:
+        - name: chip-distributor
+          image: gcr.io/studio-staging-294712/arcadia.chip.distributor.stage:latest
+          volumeMounts:
+            - name: google-cloud-key
+              mountPath: /var/secrets/google
+            - name: emu-storage
+              mountPath: /var/storage
+          imagePullPolicy: Always
+          env:
+            - name: ROBOT_DEMO_CHIP_PATH
+              value: "/var/storage"
+            - name: NODE_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: NODE_ENV
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: BO_API_PORT
+            - name: API_VERSION
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: BO_API_VERSION
+            - name: USE_GCP_SM
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: USE_GCP_SM
+            - name: GCP_PROJECT
+              valueFrom:
+                configMapKeyRef:
+                  name: arcadia-stage
+                  key: GCP_PROJECT
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /var/secrets/google/key.json

@@ -1,0 +1,35 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-f",
+        "arcadia.voucher.portal/Dockerfile",
+        "--build-arg",
+        "API_HOST=${_API_HOST}",
+        "--build-arg",
+        "BASE_URL=${_BASE_URL}",
+        "--build-arg",
+        "NODE_ENV=${_NODE_ENV}",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.voucher.portal.dev:$BUILD_ID",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.voucher.portal.dev:latest",
+        ".",
+      ]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/arcadia.voucher.portal.dev"]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud compute ssh --zone "${_ZONE}" "${_INSTANCE}" --command "
+        cd /home/arcadia
+        docker stop arcadia_voucher_portal
+        docker-compose pull arcadia-voucher-portal
+        docker-compose create arcadia-voucher-portal
+        docker-compose start arcadia-voucher-portal
+        "
+        wait
+timeout: 900s

@@ -1,0 +1,35 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-f",
+        "arcadia.backoffice.fe/Dockerfile",
+        "--build-arg",
+        "API_HOST=${_API_HOST}",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.backoffice.fe.stage:$BUILD_ID",
+        "-t",
+        "gcr.io/$PROJECT_ID/arcadia.backoffice.fe.stage:latest",
+        ".",
+      ]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/arcadia.backoffice.fe.stage"]
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['apply', '-f', 'arcadia.backoffice.fe/deployment/k8s/stage', '--namespace=${_ENV}']
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER_NAME}'
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: [
+      'set',
+      'image',
+      'deployment',
+      'backoffice-fe',
+      'backoffice-fe=gcr.io/$PROJECT_ID/arcadia.backoffice.fe.stage:$BUILD_ID',
+      '--namespace=${_ENV}'
+    ]
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER_NAME}'
+timeout: 900s

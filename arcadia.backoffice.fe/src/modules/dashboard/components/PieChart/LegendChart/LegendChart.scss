@@ -1,0 +1,18 @@
+.legend-chart {
+  @include smooth-resize(5, padding);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.legend-chart__item {
+  @include smooth-resize-margin(5, 10, 5, 10);
+  display: flex;
+  align-items: center;
+}
+
+.legend-chart__marker {
+  @include smooth-resize(10, margin-left);
+  @include smooth-resize(15, width);
+  @include smooth-resize(15, height);
+}
